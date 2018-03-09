@@ -1,16 +1,6 @@
-import React from 'react';
-import { AppRegistry, View } from 'react-native';
-import Header from './src/components/Header';
-import CoinList from './src/components/CoinList';
+import { AppRegistry } from 'react-native';
+import Home from './src/Home';
 
-//Create a component
-const App = () => (
-  <View style={{ flex: 1 }}>
-	<Header headerText={'Coins'}/>
-  <CoinList />
-  </View>
-);
+AppRegistry.registerComponent('auth', () => Home);
 
-AppRegistry.registerComponent('coins', () => App);
-
-export default App;
+export default Home;

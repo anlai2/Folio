@@ -13,7 +13,7 @@ const Header = (props) => {
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#d1c042',
+    backgroundColor: '#e56f69',
     justifyContent: 'center', //Vertical
     alignItems: 'center', //Horizontal
     height: 60, 
@@ -29,4 +29,4 @@ const styles = {
   }
 }
 
-export default Header;
+export { Header };
