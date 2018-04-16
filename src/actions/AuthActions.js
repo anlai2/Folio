@@ -43,7 +43,7 @@ const createUserSuccess = (dispatch, user) => {
 		payload: user
 	});
 
-	Actions.loginuser();
+	Actions.loginUser();
 };
 
 export const loginUser = ({ email, password }) => {
@@ -64,8 +64,8 @@ const loginUserSuccess = (dispatch, user) => {
 	dispatch({
 		type: LOGIN_USER_SUCCESS,
 		payload: user
-	});
-	Actions.stAuth();
+    });
+    Actions.main();
 };
 
 
