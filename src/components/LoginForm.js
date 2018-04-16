@@ -39,7 +39,6 @@ class LoginForm extends Component {
 
 		return (
 			<Button 
-			style={styles.loginButtonStyle}
 			onPress={this.onButtonPress.bind(this)}
 			>
 				Login
@@ -87,9 +86,6 @@ const styles = {
 	backgroundStyle: {
 		flex: 1,
 		backgroundColor: '#23213F'
-	},
-	loginButtonStyle: {
-		height: 40
 	}
 };
 
