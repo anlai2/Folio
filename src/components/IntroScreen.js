@@ -32,6 +32,11 @@ export default class IntroScreen extends React.Component {
           
         </View>
         <View style={styles.buttonContainer}>
+        <TouchableOpacity
+            onPress={Actions.createUser}
+          >
+            <Text style={styles.button}> Create Account </Text>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={Actions.loginUser}
           >

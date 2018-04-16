@@ -1,36 +1,35 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import * as firebase from 'firebase';
-import { Header, Button, Spinner, CardSection, CoinList } from './components/common';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+import ReduxThunk from 'redux-thunk';
+import firebase from 'firebase';
 import LoginForm from './components/LoginForm';
 import Router from './Router';
 
-class Home extends Component {
-	state = { loggedIn: null};
-	componentWillMount() {
-		firebase.initializeApp({
-		    apiKey: 'AIzaSyAdzycIzh6NhxKEMXNsVloP_4PGJgbwiHs',
-		    authDomain: 'auth-94d8e.firebaseapp.com',
-		    databaseURL: 'https://auth-94d8e.firebaseio.com',
-		    projectId: 'auth-94d8e',
-		    storageBucket: 'auth-94d8e.appspot.com',
-		    messagingSenderId: '193969161372'
-  		});
 
-  		firebase.auth().onAuthStateChanged((user) => {
-  			if(user){
-  				this.setState({ loggedIn: true});
-  			} else{
-  				this.setState({ loggedIn: false});
-  			}
-  		});
-	}
+class Home extends Component {
+	componentWillMount() {
+		const config = {
+			apiKey: "AIzaSyAXk7-GnAzz0UHoG4_RuW4FWbeZXkoY4SU",
+			authDomain: "cointracker-bb394.firebaseapp.com",
+			databaseURL: "https://cointracker-bb394.firebaseio.com",
+			projectId: "cointracker-bb394",
+			storageBucket: "",
+			messagingSenderId: "422073842257"
+		  };
+		  firebase.initializeApp(config);
+		}
 
 	render() {
+		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+	
 		return (
+		  <Provider store={store}>
 			<Router />
+		  </Provider>
 		);
+	  }
 	}
-}
 
 export default Home;

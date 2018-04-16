@@ -1,97 +1,108 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import * as firebase from 'firebase';
-import { Actions } from 'react-native-router-flux';
-import { Button, Card, CardSection, Input, Spinner } from './common';
+import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { LinearGradient } from 'expo';
+import { emailChanged, passwordChanged, loginUser } from '../actions';
+import { Card, CardSection, Input, Button, Spinner } from './common';
 
 class LoginForm extends Component {
-	state = { email: '', password: '', error: '', loading: false };
+	onEmailChange(text) {
+		this.props.emailChanged(text);
+	}
+
+	onPasswordChange(text){
+		this.props.passwordChanged(text);
+	}
 
 	onButtonPress(){
-		const {email, password} = this.state;
+		const { email, password } = this.props;
 
-		this.setState({ error: '', loading: true});
-
-		firebase.auth().signInWithEmailAndPassword(email, password)
-			.then(this.onLoginSuccess.bind(this)) //bind references a function to be called in the future
-			.catch(() => {
-				firebase.auth().createUserWithEmailAndPassword(email, password)
-					.then(this.onLoginSuccess.bind(this))
-					.catch(this.onLoginFailed.bind(this));
-			});
+		this.props.loginUser({ email, password });
 	}
 
-	onLoginFailed() {
-		this.setState({error: 'Authentication Failed', loading: false});
-	}
-
-	onLoginSuccess() {
-		this.setState({ 
-			email: '',
-			password: '',
-			loading: false,
-			error: ''
-		});
-		Actions.main();
+	renderError() {
+		if (this.props.error) {
+			return (
+				<View style={{ backgroundColor: 'white'}}>
+					<Text style={styles.errorTextStyle}>
+					 	{this.props.error}
+					</Text>
+				</View>
+			);
+		}
 	}
 
 	renderButton() {
-		if(this.state.loading) {
-			return <Spinner size='small'/>;
+		if (this.props.loading) {
+			return <Spinner size="large" />;
 		}
+
 		return (
-			<Button onPress={this.onButtonPress.bind(this)}>
+			<Button 
+			style={styles.loginButtonStyle}
+			onPress={this.onButtonPress.bind(this)}
+			>
 				Login
 			</Button>
 		);
 	}
 
-	render() {
+	render(){
 		return (
-			<View style={styles.container}>
-				<Card>
-					<CardSection>
-						<Input //Username
-						placeholder="you@example.com"
+			<View style={styles.backgroundStyle}>
+				<CardSection>
+					<Input 
 						label="Email"
-						value={this.state.email} //store user input into value
-						onChangeText={email => this.setState({ email })}
-						/>
-					</CardSection>
-
-					<CardSection>
-						<Input //Password
+						placeholder="example@email.com"
+						onChangeText={this.onEmailChange.bind(this)}
+						value={this.props.email}
+					/>
+				</CardSection>
+				<CardSection>
+					<Input
 						secureTextEntry
+						label="Password"
 						placeholder="password"
-						label= "Password"
-						value={this.state.password}
-						onChangeText={password => this.setState({ password })}
-						/>
-					</CardSection>
+						onChangeText={this.onPasswordChange.bind(this)}
+						value={this.props.password}
+					/>
+				</CardSection>
 
-					<Text style={styles.errorTextStyle}>
-						{this.state.error}
-					</Text>
+				{this.renderError()}
 
-					<CardSection>
-						{this.renderButton()}
-					</CardSection>
-				</Card>
+				<CardSection>
+					{this.renderButton()}
+				</CardSection>
 			</View>
-		);
+			);
 	}
 }
 
 const styles = {
-	container: {
-		flex: 1,
-		backgroundColor: '#2A033E',
-	  },
 	errorTextStyle: {
 		fontSize: 20,
 		alignSelf: 'center',
 		color: 'red'
+	},
+	backgroundStyle: {
+		flex: 1,
+		backgroundColor: '#23213F'
+	},
+	loginButtonStyle: {
+		height: 40
 	}
 };
 
-export default LoginForm;
+const mapStateToProps = ({auth}) => {
+	const {email, password, error, loading} = auth;
+
+	return {
+	 	email,
+		password,
+		error,
+	 	loading
+	};
+};
+export default connect(mapStateToProps, { 
+	emailChanged, passwordChanged, loginUser
+})(LoginForm);
