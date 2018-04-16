@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import * as firebase from 'firebase';
 import { Header, Button, Spinner, CardSection, CoinList } from './components/common';
 import LoginForm from './components/LoginForm';
+import Router from './Router';
 
 class Home extends Component {
 	state = { loggedIn: null};
@@ -25,28 +26,9 @@ class Home extends Component {
   		});
 	}
 
-	renderContent(){
-		switch (this.state.loggedIn) {
-			case true:
-				return (
-					<View style={{flex: 1 }}>
-						<CardSection>
-							<CoinList />
-						</CardSection>
-					</View>
-					);
-			case false:
-				return <LoginForm />;
-			default:
-				return <Spinner size='large' />;
-		}
-	}
 	render() {
 		return (
-			<View style={{flex: 1 }}>
-			<Header headerText="CoinTracker" />
-				{this.renderContent()}
-			</View>
+			<Router />
 		);
 	}
 }
