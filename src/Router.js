@@ -20,18 +20,20 @@ const RouterComponent = () => {
 	      			key="createUser" 
 	      			component={CreateForm} 
 	      			title="Create Account"
-	      			backTitle="Back" 
+					backTitle="Back"
+					titleStyle={{ color: "white" }} 
 	      			navigationBarStyle={{ backgroundColor: '#2A033E'}} 
 	      			backButtonImage={require('../assets/back.png')}
-	    			backButtonTextStyle={{ color: '#000' }}/>
+	    			backButtonTextStyle={{ color: '#FFF' }}/>
 	      		<Scene 
 	      			key="loginUser" 
 	      			component={LoginForm} 
 	      			title="MoonShot"
-	      			backTitle="Back" 
+					backTitle="Back" 
+					titleStyle={{ color: "white" }} 
 	      			navigationBarStyle={{ backgroundColor: '#2A033E'}} 
 	      			backButtonImage={require('../assets/back.png')}
-	    			backButtonTextStyle={{ color: '#000' }}/>
+	    			backButtonTextStyle={{ color: '#FFF' }}/>
 	      	</Scene>
             
             <Scene key="main">
