@@ -13,35 +13,32 @@ export default class IntroScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar
+        {/* <StatusBar
           barStyle="light-content"
           backgroundColor="#6a51ae"
-        />
+        /> */}
         <View style={styles.introContainer}>
           <Image
             source={LOGO}
             style={styles.logo}
-
           />
-          
-           
           <Text style={{
             fontSize: 30,
             fontWeight: '700',
-            color: 'white'}}> MOONSHOT </Text>
+            color: 'white'}}>MOONSHOT       </Text>
           
         </View>
         <View style={styles.buttonContainer}>
-        <TouchableOpacity
-            onPress={Actions.createUser}
-          >
-            <Text style={styles.button}> Create Account </Text>
-          </TouchableOpacity>
           <TouchableOpacity
             onPress={Actions.loginUser}
           >
             <Text style={styles.button}> Login </Text>
           </TouchableOpacity>
+        <TouchableOpacity
+            onPress={Actions.createUser}
+          >
+            <Text style={styles.button}> Signup </Text>
+          </TouchableOpacity> 
         </View>
       </View>
     );
@@ -72,7 +69,7 @@ const styles = StyleSheet.create({
     width: '100%',    
     justifyContent: 'space-around',
     padding: 15,
-    backgroundColor: '#39C9CF',
+    backgroundColor: 'rgba(92, 99,216, 1)',
   },
   button: {
     fontSize: 20,

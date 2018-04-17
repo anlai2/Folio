@@ -28,10 +28,9 @@ const RouterComponent = () => {
 	      		<Scene 
 	      			key="loginUser" 
 	      			component={LoginForm} 
-	      			title="MoonShot"
-					backTitle="Back" 
-					titleStyle={{ color: "white" }} 
-	      			navigationBarStyle={{ backgroundColor: '#2A033E'}} 
+	      			// title="MoonShot"
+					// titleStyle={{ color: "white" }} 
+	      			navigationBarStyle={{ paddingTop: 20, backgroundColor: '#2A033E'}} 
 	      			backButtonImage={require('../assets/back.png')}
 	    			backButtonTextStyle={{ color: '#FFF' }}/>
 	      	</Scene>
@@ -40,8 +39,9 @@ const RouterComponent = () => {
                 <Scene
                     key="coinList"
                     component={CoinList}
-                    title="MoonShot"
-                    navigationBarStyle={{ backgroundColor: '#2A033E'}}
+					title="Dashboard      "
+					titleStyle={{ color: "white", alignItems: "center", justifyContent:'center' }} 
+					navigationBarStyle={{ paddingTop: 15, backgroundColor: '#4F3170'}}
                 />
             </Scene>
       	</Stack>

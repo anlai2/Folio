@@ -26,14 +26,14 @@ const CoinDetail = ({ coinProp }) => {
 			<CardSection>
 			<View style={headerContentLeftStyle}>
 				{/* <Text style={styles.textStyle}>{rank}</Text> */}
-				<Text style={headerTextStyle}>{name}</Text>
+				<Text style={headerTextStyle}>{name}      </Text>
 				<Text style={styles.textSymbolStyle}>{symbol}</Text>
 			</View>
 			<View style={headerContentRightStyle}>
 					<Button
 						title={"$"+price_usd}
 						buttonStyle={{
-							backgroundColor: "#2C355E",
+							backgroundColor: "rgba(92, 99,216, 1)",
 							// width: 120,
 							// height: 50,
 							// borderColor: "transparent",
@@ -41,7 +41,7 @@ const CoinDetail = ({ coinProp }) => {
 							borderRadius: 60
 						}}
 					/>
-				<Text style={styles.textPercentStyle}>{percent_change_24h+"%"}</Text>
+				<Text style={[styles.textPercentStyle, percent_change_24h < 0 ? styles.redText : styles.greenText]}>{percent_change_24h+"%  "}</Text>
 			</View>
 			</CardSection>
 		</Card>
@@ -79,6 +79,12 @@ const styles = {
 	},
 	textSymbolStyle: {
 		color: '#555974',
+	},
+	redText: {
+		color: 'red'
+	},
+	greenText: {
+		color: '#18A76D'
 	}
 };
 export default CoinDetail;
