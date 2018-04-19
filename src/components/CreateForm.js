@@ -10,11 +10,11 @@ class CreateForm extends Component {
 		this.props.emailChanged(text);
 	}
 
-	onPasswordChange(text){
+	onPasswordChange(text) {
 		this.props.passwordChanged(text);
 	}
 
-	onButtonPress(){
+	onButtonPress() {
 		const { email, password } = this.props;
 
 		this.props.createUser({ email, password });
@@ -23,9 +23,9 @@ class CreateForm extends Component {
 	renderError() {
 		if (this.props.error) {
 			return (
-				<View style={{ backgroundColor: 'white'}}>
+				<View style={{ backgroundColor: 'white' }}>
 					<Text style={styles.errorTextStyle}>
-					 	{this.props.error}
+						{this.props.error}
 					</Text>
 				</View>
 			);
@@ -44,34 +44,34 @@ class CreateForm extends Component {
 		);
 	}
 
-	render(){
+	render() {
 		return (
-            <View style={styles.backgroundStyle}>
-                <CardSection>
-                    <Input 
-                        label="Email"
-                        placeholder="example@email.com"
-                        onChangeText={this.onEmailChange.bind(this)}
-                        value={this.props.email}
-                    />
-                </CardSection>
-                <CardSection>
-                    <Input
-                        secureTextEntry
-                        label="Password"
-                        placeholder="password"
-                        onChangeText={this.onPasswordChange.bind(this)}
-                        value={this.props.password}
-                    />
-                </CardSection>
+			<View style={styles.backgroundStyle}>
+				<CardSection>
+					<Input
+						label="Email"
+						placeholder="example@email.com"
+						onChangeText={this.onEmailChange.bind(this)}
+						value={this.props.email}
+					/>
+				</CardSection>
+				<CardSection>
+					<Input
+						secureTextEntry
+						label="Password"
+						placeholder="password"
+						onChangeText={this.onPasswordChange.bind(this)}
+						value={this.props.password}
+					/>
+				</CardSection>
 
-                {this.renderError()}
+				{this.renderError()}
 
-                <CardSection>
-                    {this.renderButton()}
-                </CardSection>
-            </View>
-			);
+				<CardSection>
+					{this.renderButton()}
+				</CardSection>
+			</View>
+		);
 	}
 }
 
@@ -87,16 +87,16 @@ const styles = {
 	}
 };
 
-const mapStateToProps = ({auth}) => {
-	const {email, password, error, loading} = auth;
+const mapStateToProps = ({ auth }) => {
+	const { email, password, error, loading } = auth;
 
 	return {
-	 	email,
+		email,
 		password,
 		error,
-	 	loading
+		loading
 	};
 };
-export default connect(mapStateToProps, { 
-	emailChanged, passwordChanged, createUser 
+export default connect(mapStateToProps, {
+	emailChanged, passwordChanged, createUser
 })(CreateForm);

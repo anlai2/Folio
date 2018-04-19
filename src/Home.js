@@ -17,19 +17,19 @@ class Home extends Component {
 			projectId: "cointracker-bb394",
 			storageBucket: "",
 			messagingSenderId: "422073842257"
-		  };
-		  firebase.initializeApp(config);
-		}
+		};
+		firebase.initializeApp(config);
+	}
 
 	render() {
 		const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
-	
+
 		return (
-		  <Provider store={store}>
-			<Router />
-		  </Provider>
+			<Provider store={store}>
+				<Router />
+			</Provider>
 		);
-	  }
 	}
+}
 
 export default Home;

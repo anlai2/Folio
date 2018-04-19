@@ -25,8 +25,9 @@ export default class IntroScreen extends React.Component {
           <Text style={{
             fontSize: 30,
             fontWeight: '700',
-            color: 'white'}}>MOONSHOT       </Text>
-          
+            color: 'white'
+          }}>MOONSHOT  </Text>
+
         </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
@@ -34,11 +35,11 @@ export default class IntroScreen extends React.Component {
           >
             <Text style={styles.button}> Login </Text>
           </TouchableOpacity>
-        <TouchableOpacity
+          <TouchableOpacity
             onPress={Actions.createUser}
           >
             <Text style={styles.button}> Signup </Text>
-          </TouchableOpacity> 
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -61,12 +62,12 @@ const styles = StyleSheet.create({
     width: 400,
     height: 300,
     marginBottom: 10
-    
+
   },
   buttonContainer: {
     flexDirection: 'row',
     height: 60,
-    width: '100%',    
+    width: '100%',
     justifyContent: 'space-around',
     padding: 15,
     backgroundColor: 'rgba(92, 99,216, 1)',

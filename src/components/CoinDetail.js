@@ -6,32 +6,32 @@ import { Button } from 'react-native-elements';
 const CoinDetail = ({ coinProp }) => {
 	//Destructure references for nicer code
 	const { name, symbol, price_usd, rank, percent_change_24h } = coinProp;
-	const {headerContentLeftStyle,
-		headerContentRightStyle, 
+	const { headerContentLeftStyle,
+		headerContentRightStyle,
 		headerTextStyle } = styles;
-	
+
 	state = {
 		colorPercent: "FFFFFF"
 	}
 
 	componentWillMount = () => {
-		if(percent_change_24h > 0){
-			this.setState({ colorPercent: "00FF00"})
-		}else if(percent_change_24h < 0){
-			this.setState({ colorPercent: "FF0000"})
+		if (percent_change_24h > 0) {
+			this.setState({ colorPercent: "00FF00" })
+		} else if (percent_change_24h < 0) {
+			this.setState({ colorPercent: "FF0000" })
 		}
 	}
 	return (
 		<Card>
 			<CardSection>
-			<View style={headerContentLeftStyle}>
-				{/* <Text style={styles.textStyle}>{rank}</Text> */}
-				<Text style={headerTextStyle}>{name}      </Text>
-				<Text style={styles.textSymbolStyle}>{symbol}</Text>
-			</View>
-			<View style={headerContentRightStyle}>
+				<View style={headerContentLeftStyle}>
+					{/* <Text style={styles.textStyle}>{rank}</Text> */}
+					<Text style={headerTextStyle}>{name}      </Text>
+					<Text style={styles.textSymbolStyle}>{symbol}</Text>
+				</View>
+				<View style={headerContentRightStyle}>
 					<Button
-						title={"$"+price_usd}
+						title={"$" + price_usd}
 						buttonStyle={{
 							backgroundColor: "rgba(92, 99,216, 1)",
 							// width: 120,
@@ -41,8 +41,8 @@ const CoinDetail = ({ coinProp }) => {
 							borderRadius: 60
 						}}
 					/>
-				<Text style={[styles.textPercentStyle, percent_change_24h < 0 ? styles.redText : styles.greenText]}>{percent_change_24h+"%  "}</Text>
-			</View>
+					<Text style={[styles.textPercentStyle, percent_change_24h < 0 ? styles.redText : styles.greenText]}>{percent_change_24h + "%  "}</Text>
+				</View>
 			</CardSection>
 		</Card>
 	);
@@ -52,14 +52,14 @@ const styles = {
 	headerContentLeftStyle: {
 		flexDirection: 'column',
 		justifyContent: 'center',
-		alignItems:'flex-start',
+		alignItems: 'flex-start',
 		flex: 1,
 		marginLeft: 15
 	},
 	headerContentRightStyle: {
 		// marginTop: 18,
-		justifyContent:'center',
-		alignItems:'flex-end',
+		justifyContent: 'center',
+		alignItems: 'flex-end',
 		// justifyContent:'center',
 		flex: 1
 	},
@@ -70,8 +70,8 @@ const styles = {
 		color: 'white'
 	},
 	textPercentStyle: {
-		justifyContent:'flex-end',
-		alignItems:'flex-end',
+		justifyContent: 'flex-end',
+		alignItems: 'flex-end',
 		color: 'white',
 		fontSize: 15,
 		marginRight: 20,
