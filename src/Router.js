@@ -5,6 +5,8 @@ import CreateForm from './components/CreateForm';
 import LoginForm from './components/LoginForm';
 import IntroScreen from './components/IntroScreen';
 import CoinList from './components/CoinList';
+import PortfolioScreen from './components/PortfolioScreen';
+import AddCoinScreen from './components/AddCoinScreen';
 
 const RouterComponent = () => {
 	return (
@@ -45,8 +47,26 @@ const RouterComponent = () => {
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
 						rightButtonImage={require('../assets/portfolio.png')}
 						rightTitle="Portfolio"
-						onRight={() => Actions.portfolio() }
+						onRight={() => Actions.portfolioScreen()}
 						rightButtonTextStyle={{ color: '#FFF' }}
+					/>
+					<Scene
+						key="portfolioScreen"
+						component={PortfolioScreen}
+						onBack={() => Actions.pop()}
+						title="Portfolio"
+						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
+						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						rightTitle="Add Coin"
+						onRight={() => Actions.addCoin()}
+						rightButtonTextStyle={{ color: '#FFF' }}
+					/>
+					<Scene
+						key="addCoin"
+						component={AddCoinScreen}
+						title="Add Coin"
+						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
+						navigationBarStyle={{ backgroundColor: '#4F3170' }}
 					/>
 				</Scene>
 			</Stack>

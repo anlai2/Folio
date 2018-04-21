@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { ScrollView, View } from 'react-native';
 import CoinDetail from './CoinDetail';
-import { CardSection, Header } from './common';
+import { CardSection } from './common';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
 
@@ -58,6 +58,7 @@ class CoinList extends Component {
 const styles = {
   viewContainer: {
     flex: 1,
+    backgroundColor: "#2A033E"
   }
 }
 

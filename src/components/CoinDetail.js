@@ -10,17 +10,6 @@ const CoinDetail = ({ coinProp }) => {
 		headerContentRightStyle,
 		headerTextStyle } = styles;
 
-	state = {
-		colorPercent: "FFFFFF"
-	}
-
-	componentWillMount = () => {
-		if (percent_change_24h > 0) {
-			this.setState({ colorPercent: "00FF00" })
-		} else if (percent_change_24h < 0) {
-			this.setState({ colorPercent: "FF0000" })
-		}
-	}
 	return (
 		<Card>
 			<CardSection>
