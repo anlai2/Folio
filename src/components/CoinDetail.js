@@ -1,17 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { Card, CardSection } from './common';
 import { Button } from 'react-native-elements';
 
 const CoinDetail = ({ coinProp }) => {
 	//Destructure references for nicer code
-	const { name, symbol, price_usd, rank, percent_change_24h } = coinProp;
+	const { id, name, symbol, price_usd, rank, percent_change_24h } = coinProp;
 	const { headerContentLeftStyle,
 		headerContentRightStyle,
 		headerTextStyle } = styles;
 
 	return (
-		<Card>
+		<TouchableOpacity onPress={() => console.log(id)}>
 			<CardSection>
 				<View style={headerContentLeftStyle}>
 					{/* <Text style={styles.textStyle}>{rank}</Text> */}
@@ -33,7 +33,7 @@ const CoinDetail = ({ coinProp }) => {
 					<Text style={[styles.textPercentStyle, percent_change_24h < 0 ? styles.redText : styles.greenText]}>{percent_change_24h + "%  "}</Text>
 				</View>
 			</CardSection>
-		</Card>
+		</TouchableOpacity>
 	);
 };
 

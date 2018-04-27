@@ -38,7 +38,7 @@ const RouterComponent = () => {
 					/>
 				</Scene>
 
-				<Scene key="main" initial>
+				<Scene key="main">
 					<Scene
 						key="coinList"
 						component={CoinList}

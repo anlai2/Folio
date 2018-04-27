@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { ScrollView, View } from 'react-native';
 import CoinDetail from './CoinDetail';
+import { connect } from 'react-redux';
 import { CardSection } from './common';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
+import { logoutUserSuccess } from '../actions';
 
 // Class component
 class CoinList extends Component {
@@ -14,6 +16,10 @@ class CoinList extends Component {
     fetch('https://api.coinmarketcap.com/v1/ticker')
       .then((response) => response.json())
       .then((responseData) => this.setState({ coins: responseData }));
+  }
+
+  logoutUser() {
+    this.props.logoutUserSuccess();
   }
 
   // Render all the coins that was fetched from the API.
@@ -34,7 +40,7 @@ class CoinList extends Component {
             {this.renderCoins()}
             <CardSection>
               <Button
-                onPress={() => firebase.auth().signOut()}
+                onPress={() => this.logoutUser()}
                 title="LOGOUT "
                 titleStyle={{ fontWeight: 'bold' }}
                 buttonStyle={{
@@ -62,5 +68,15 @@ const styles = {
   }
 }
 
-// Make compomnent available to other parts of the application
-export default CoinList;
+const mapStateToProps = ({ auth }) => {
+  const { email, password, error, loading } = auth;
+  return {
+    email,
+    password,
+    error,
+    loading
+  };
+};
+export default connect(mapStateToProps, {
+  logoutUserSuccess
+})(CoinList);

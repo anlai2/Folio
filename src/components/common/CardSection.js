@@ -2,22 +2,21 @@ import React from 'react';
 import { View } from 'react-native';
 
 const CardSection = (props) => {
-	return(
+	return (
 		<View style={styles.containerStyle}>
-		{props.children}
+			{props.children}
 		</View>
 	);
 };
 
 const styles = {
-	containerStyle:{
-		borderBottomWidth: 1,
-		padding: 5,
-		backgroundColor: 'transparent',
-		justifyContent: 'center',
+	containerStyle: {
+		padding: 10,
+		backgroundColor: '#23213F',
+		justifyContent: 'flex-start',
 		flexDirection: 'row',
-		borderColor: '#2A2948',
+		borderRadius: 20,
 		position: 'relative'
 	}
 };
-export {CardSection};
+export { CardSection };
