@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import { Card, CardSection } from './common';
-import { Button } from 'react-native-elements';
+import { Card, CardSection } from '../common';
+import { Button, CheckBox } from 'react-native-elements';
 
-const CoinDetail = ({ coinProp }) => {
+const PortfolioCoins = ({ coinProp }) => {
 	//Destructure references for nicer code
-	const { id, name, symbol, price_usd, rank, percent_change_24h } = coinProp;
+	const { id, name, symbol } = coinProp;
 	const { headerContentLeftStyle,
 		headerContentRightStyle,
 		headerTextStyle } = styles;
@@ -19,18 +19,6 @@ const CoinDetail = ({ coinProp }) => {
 					<Text style={styles.textSymbolStyle}>{symbol}</Text>
 				</View>
 				<View style={headerContentRightStyle}>
-					<Button
-						title={"$" + price_usd}
-						buttonStyle={{
-							backgroundColor: "rgba(92, 99,216, 1)",
-							// width: 120,
-							// height: 50,
-							// borderColor: "transparent",
-							borderWidth: 0,
-							borderRadius: 60
-						}}
-					/>
-					<Text style={[styles.textPercentStyle, percent_change_24h < 0 ? styles.redText : styles.greenText]}>{percent_change_24h + "%  "}</Text>
 				</View>
 			</CardSection>
 		</TouchableOpacity>
@@ -76,4 +64,4 @@ const styles = {
 		color: '#18A76D'
 	}
 };
-export { CoinDetail }
+export { PortfolioCoins }

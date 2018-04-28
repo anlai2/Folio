@@ -21,9 +21,7 @@ const RouterComponent = () => {
 					<Scene
 						key="createUser"
 						component={CreateForm}
-						title="Create Account"
 						backTitle="Back"
-						titleStyle={{ color: "white" }}
 						navigationBarStyle={{ backgroundColor: '#2A033E' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }} />
@@ -32,13 +30,13 @@ const RouterComponent = () => {
 						component={LoginForm}
 						// title="MoonShot"
 						// titleStyle={{ color: "white" }} 
-						navigationBarStyle={{ paddingTop: 20, backgroundColor: '#2A033E' }}
+						navigationBarStyle={{ backgroundColor: '#2A033E' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 				</Scene>
 
-				<Scene key="main">
+				<Scene key="main" initial>
 					<Scene
 						key="coinList"
 						component={CoinList}
