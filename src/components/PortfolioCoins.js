@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import { Card, CardSection } from '../common';
+import { Card, CardSection } from './common';
 import { Button, CheckBox } from 'react-native-elements';
 
 const PortfolioCoins = ({ coinProp }) => {
@@ -64,4 +64,4 @@ const styles = {
 		color: '#18A76D'
 	}
 };
-export { PortfolioCoins }
+export default PortfolioCoins;
