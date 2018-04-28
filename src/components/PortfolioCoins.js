@@ -5,7 +5,7 @@ import { Button, CheckBox } from 'react-native-elements';
 
 const PortfolioCoins = ({ coinProp }) => {
 	//Destructure references for nicer code
-	const { id, name, symbol } = coinProp;
+	const { id, name, symbol, price_usd } = coinProp;
 	const { headerContentLeftStyle,
 		headerContentRightStyle,
 		headerTextStyle } = styles;
@@ -19,6 +19,17 @@ const PortfolioCoins = ({ coinProp }) => {
 					<Text style={styles.textSymbolStyle}>{symbol}</Text>
 				</View>
 				<View style={headerContentRightStyle}>
+				<Button
+						title={"$" + price_usd}
+						buttonStyle={{
+							backgroundColor: "rgba(92, 99,216, 1)",
+							// width: 120,
+							// height: 50,
+							// borderColor: "transparent",
+							borderWidth: 0,
+							borderRadius: 60
+						}}
+					/>
 				</View>
 			</CardSection>
 		</TouchableOpacity>

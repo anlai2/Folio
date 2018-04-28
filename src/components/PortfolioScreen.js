@@ -30,8 +30,8 @@ class PortfolioScreen extends Component {
                     <Card
                         containerStyle={styles.cardContainer}
                     >
-                        <View style={{ backgroundColor: "#FFF", padding: 10, alignItems: "center" }}>
-                            <Text style={{ fontWeight: 'bold' }}>
+                        <View style={{ backgroundColor: "#23213F", padding: 10, alignItems: "center" }}>
+                            <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
                                 Portfolio Value:
                             </Text>
                         </View>

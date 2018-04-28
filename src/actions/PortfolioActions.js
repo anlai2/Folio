@@ -1,5 +1,5 @@
-import firebase from 'firebase'
-    ; import { Actions } from 'react-native-router-flux';
+import firebase from 'firebase'; 
+import { Actions } from 'react-native-router-flux';
 import {
     COIN_CHANGED,
     ASSETS_CHANGED,
