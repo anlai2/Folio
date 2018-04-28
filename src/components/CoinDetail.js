@@ -76,4 +76,4 @@ const styles = {
 		color: '#18A76D'
 	}
 };
-export { CoinDetail }
+export default CoinDetail;

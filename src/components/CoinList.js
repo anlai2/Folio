@@ -13,7 +13,7 @@ class CoinList extends Component {
   state = { coins: [] };
   componentWillMount() {
     // ASYNC HTTP Request to get coins from the API.
-    fetch('https://api.coinmarketcap.com/v1/ticker')
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
       .then((response) => response.json())
       .then((responseData) => this.setState({ coins: responseData }));
   }
