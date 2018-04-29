@@ -1,26 +1,26 @@
 import firebase from 'firebase'; 
 import { Actions } from 'react-native-router-flux';
 import {
-    COIN_CHANGED,
+    COINS_CHANGED,
     ASSETS_CHANGED,
     COINS_SAVED
 } from './types';
 
 export const coinChanged = (id) => {
     return {
-        type: COIN_CHANGED,
+        type: COINS_CHANGED,
         payload: id
     }
 }
 
-export const assetsChanged = (amount) => {
+export const assetChanged = (amount) => {
     return {
         type: ASSETS_CHANGED,
         payload: amount
     }
 }
 
-export const saveCoins = ({ id, amount }) => {
+export const coinsSaved = ({ id, amount }) => {
     const { currentUser } = firebase.auth();
 
     return (dispatch) => {

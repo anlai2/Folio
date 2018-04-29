@@ -4,14 +4,25 @@ import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
 import { CardSection } from './common';
 import { Button, Card } from 'react-native-elements';
-import { addCoin } from '../actions';
+import { connect } from 'react-redux';
+import { coinChanged, coinsSaved } from '../actions';
 import AddCoinDetail from './AddCoinDetail';
 
 class AddCoinScreen extends Component {
-    state = { coins: [] };
+    constructor(props) {
+        super(props)
+        const coins = []
+        const checked = false
+
+        this.state = { coins, checked }
+    }
+    state = {
+        coins: [],
+        coinPicked: false
+    };
     componentWillMount() {
         // ASYNC HTTP Request to get coins from the API.
-        fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+        fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
             .then((response) => response.json())
             .then((responseData) => this.setState({ coins: responseData }));
     }
@@ -19,41 +30,45 @@ class AddCoinScreen extends Component {
     // Render all the coins that was fetched from the API.
     renderCoins() {
         return this.state.coins.map(coin =>
-            <AddCoinDetail key={coin.name} coinProp={coin} />);
+            <AddCoinDetail
+                key={coin.name}
+                check={this.state.checked}
+                coinProp={coin}
+                onChecked={() => {
+                    this.setState({ checked: !this.state.checked })
+                    this.props.coinChanged(coin.symbol)
+                }}
+            />);
         //coinProp variable can be named anything as long as we use that name in other functions
     }
+
     render() {
         return (
             <View style={styles.viewContainer}>
                 <LinearGradient
                     colors={['#452768', '#171032', '#04081B']}>
                     <ScrollView>
-                        <Card
-                            containerStyle={styles.cardContainer}
-                        >
-                            <View style={{ backgroundColor: "#23213F", padding: 10, alignItems: "center" }}>
-                                <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                    Pick Coin(s)
+                        <View style={styles.headerContainer}>
+                            <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
+                                Pick Coin(s)
                             </Text>
-                            </View>
-                        </Card>
+                        </View>
+                        <Button
+                            onPress={() => console.log("coins saved for asset adding")}
+                            title="Add Coins "
+                            titleStyle={{ fontWeight: 'bold' }}
+                            buttonStyle={{
+                                backgroundColor: "rgba(92, 99,216, 1)",
+                                width: 300,
+                                height: 45,
+                                borderColor: "transparent",
+                                borderWidth: 0,
+                                borderRadius: 5,
+                                paddingLeft: 10
+                            }}
+                            containerStyle={{ marginTop: 20 }}
+                        />
                         {this.renderCoins()}
-                        <CardSection>
-                            <Button
-                                onPress={() => this.props.addCoin()}
-                                title="Add Coin "
-                                titleStyle={{ fontWeight: 'bold' }}
-                                buttonStyle={{
-                                    backgroundColor: "rgba(92, 99,216, 1)",
-                                    width: 300,
-                                    height: 45,
-                                    borderColor: "transparent",
-                                    borderWidth: 0,
-                                    borderRadius: 5
-                                }}
-                                containerStyle={{ marginTop: 20 }}
-                            />
-                        </CardSection>
                     </ScrollView>
                 </LinearGradient>
             </View>
@@ -69,7 +84,24 @@ const styles = {
     cardContainer: {
         backgroundColor: 'rgba(92, 99,216, 1)',
         borderColor: '#000'
+    },
+    headerContainer: {
+        backgroundColor: "#23213F",
+        padding: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        height: 50,
+        borderRadius: 50
     }
 }
 
-export default AddCoinScreen;
+const mapStateToProps = ({ portfolio }) => {
+    const { id } = portfolio;
+
+    return {
+        id
+    };
+};
+export default connect(mapStateToProps, {
+    coinChanged, coinsSaved
+})(AddCoinScreen);

@@ -14,9 +14,11 @@ class PortfolioScreen extends Component {
             .then((response) => response.json())
             .then((responseData) => this.setState({ coins: responseData }));
     }
+    renderTotal() {
 
+    }
     // Render all the coins that was fetched from the API.
-    renderCoins() {
+    renderPortfolio() {
         return this.state.coins.map(coin =>
             <PortfolioCoins key={coin.name} coinProp={coin} />);
         //coinProp variable can be named anything as long as we use that name in other functions
@@ -37,7 +39,7 @@ class PortfolioScreen extends Component {
                         </View>
                     </Card>
                     <ScrollView>
-                        {this.renderCoins()}                        
+                        {this.renderPortfolio()}                        
                         <CardSection>
                             <Button
                                 onPress={() => Actions.addCoin()}
