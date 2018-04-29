@@ -7,6 +7,7 @@ import IntroScreen from './components/IntroScreen';
 import CoinList from './components/CoinList';
 import PortfolioScreen from './components/PortfolioScreen';
 import AddCoinScreen from './components/AddCoinScreen';
+import AddAssetsScreen from './components/AddAssetsScreen';
 
 const RouterComponent = () => {
 	return (
@@ -63,6 +64,13 @@ const RouterComponent = () => {
 						key="addCoin"
 						component={AddCoinScreen}
 						title="Add Coin"
+						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
+						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+					/>
+					<Scene
+						key="addAsset"
+						component={AddAssetsScreen}
+						title="Add Assets"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
 					/>

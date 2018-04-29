@@ -3,11 +3,9 @@ import { Text, View, Picker, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
 import { CardSection } from './common';
-import { Actions } from 'react-native-router-flux';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { coinChanged, coinsSaved } from '../actions';
-import AddCoinDetail from './AddCoinDetail';
+import { fetchCoins } from '../actions';
 
 class AddCoinScreen extends Component {
     constructor(props) {
@@ -17,21 +15,16 @@ class AddCoinScreen extends Component {
 
         this.state = { coins, checked }
     }
-
+    
     componentWillMount() {
         // ASYNC HTTP Request to get coins from the API.
-        fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-            .then((response) => response.json())
-            .then((responseData) => this.setState({ coins: responseData }));
+        this.props.fetchCoins
     }
 
     onButtonPress() {
-        const { coins } = this.props; 
-        console.log("hey there");
-        console.log(coins);
-        console.log("hey there1");
+        const { coins } = this.props;
+
         this.props.coinsSaved({ coins })
-        Actions.addAsset();
     }
 
     // Render all the coins that was fetched from the API.
@@ -103,12 +96,10 @@ const styles = {
 }
 
 const mapStateToProps = ({ portfolio }) => {
-    const { coins } = portfolio;
+    const { id } = portfolio;
 
     return {
-        coins
+        id
     };
 };
-export default connect(mapStateToProps, {
-    coinChanged, coinsSaved
-})(AddCoinScreen);
+export default AddAssetsScreen;
