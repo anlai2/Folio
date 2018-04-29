@@ -16,10 +16,7 @@ class AddCoinScreen extends Component {
 
         this.state = { coins, checked }
     }
-    state = {
-        coins: [],
-        coinPicked: false
-    };
+
     componentWillMount() {
         // ASYNC HTTP Request to get coins from the API.
         fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
@@ -28,8 +25,10 @@ class AddCoinScreen extends Component {
     }
 
     onButtonPress() {
-        const { coins } = this.props;
-
+        const { coins } = this.props; 
+        console.log("hey there");
+        console.log(coins);
+        console.log("hey there1");
         this.props.coinsSaved({ coins })
     }
 
@@ -102,10 +101,10 @@ const styles = {
 }
 
 const mapStateToProps = ({ portfolio }) => {
-    const { id } = portfolio;
+    const { coins } = portfolio;
 
     return {
-        id
+        coins
     };
 };
 export default connect(mapStateToProps, {

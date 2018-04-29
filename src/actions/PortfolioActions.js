@@ -18,6 +18,6 @@ export const coinsSaved = ({ coins }) => {
     return (dispatch) => {
         dispatch({ type: COINS_SAVED });
         firebase.database().ref(`/portfolios/${currentUser.uid}/`)
-            .push({ coins })
+            .set({ coins })
     }
 }

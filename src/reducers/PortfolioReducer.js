@@ -4,7 +4,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    coins: []
+	coins: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
 			 }
 			//this.state.coins.push(action.payload)
 		case COINS_SAVED:
-			return { ...state, coins: action.payload};
+			return { ...state };
 		default:
 			return state;
 	}
