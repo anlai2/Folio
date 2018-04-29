@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { ScrollView, View } from 'react-native';
 import CoinDetail from './CoinDetail';
+import GlobalDetail from './GlobalDetail';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import { Button } from 'react-native-elements';
@@ -10,16 +11,31 @@ import { logoutUserSuccess } from '../actions';
 
 // Class component
 class CoinList extends Component {
-  state = { coins: [] };
+  state = {
+    coins: [],
+    global: {}
+  };
   componentWillMount() {
     // ASYNC HTTP Request to get coins from the API.
+    fetch('https://api.coinmarketcap.com/v1/global/')
+      .then((response) => response.json())
+      .then((responseData) => this.setState({ global: responseData }));
+    console.log(this.state.global);
+
     fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
       .then((response) => response.json())
       .then((responseData) => this.setState({ coins: responseData }));
+    console.log(this.state.coins);
   }
 
   logoutUser() {
     this.props.logoutUserSuccess();
+  }
+
+
+  renderGlobal() {
+    return (
+      <GlobalDetail coinProp={this.state.global}/>)
   }
 
   // Render all the coins that was fetched from the API.
@@ -37,6 +53,7 @@ class CoinList extends Component {
           colors={['#452768', '#171032', '#04081B']}>
           <ScrollView>
             {/* <Header headerText="Dashboard" /> */}
+            {this.renderGlobal()}
             {this.renderCoins()}
             <CardSection>
               <Button

@@ -5,7 +5,11 @@ import { CheckBox } from 'react-native-elements';
 
 const AddCoinDetail = ({ coinProp }) => {
     //Destructure references for nicer code
-    const { id, name, symbol, price_usd, rank, percent_change_24h } = coinProp;
+    const checked = false;
+
+    this.state = { checked };;
+
+    const { id, name, symbol } = coinProp;
     const { headerContentLeftStyle,
         headerContentRightStyle,
         headerTextStyle } = styles;
@@ -20,7 +24,10 @@ const AddCoinDetail = ({ coinProp }) => {
                 </View>
                 <View style={headerContentRightStyle}>
                     <CheckBox
-                        containerStyle={{ backgroundColor: '#23213F' }}
+                        containerStyle={{ backgroundColor: '#23213F', borderColor: '#23213F' }}
+                        checkedIcon='dot-circle-o'
+                        checked={this.state.checked}
+                        onPress={() => this.setState({ checked: !this.state.checked })}
                     />
                 </View>
             </CardSection>
