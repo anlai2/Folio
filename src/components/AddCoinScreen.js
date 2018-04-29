@@ -27,6 +27,12 @@ class AddCoinScreen extends Component {
             .then((responseData) => this.setState({ coins: responseData }));
     }
 
+    onButtonPress() {
+        const { coins } = this.props;
+
+        this.props.coinsSaved({ coins })
+    }
+
     // Render all the coins that was fetched from the API.
     renderCoins() {
         return this.state.coins.map(coin =>
@@ -36,7 +42,7 @@ class AddCoinScreen extends Component {
                 coinProp={coin}
                 onChecked={() => {
                     this.setState({ checked: !this.state.checked })
-                    this.props.coinChanged(coin.symbol)
+                    this.props.coinChanged({ value: coin.symbol })
                 }}
             />);
         //coinProp variable can be named anything as long as we use that name in other functions
@@ -54,7 +60,7 @@ class AddCoinScreen extends Component {
                             </Text>
                         </View>
                         <Button
-                            onPress={() => console.log("coins saved for asset adding")}
+                            onPress={() => this.onButtonPress()}
                             title="Add Coins "
                             titleStyle={{ fontWeight: 'bold' }}
                             buttonStyle={{

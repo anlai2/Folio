@@ -39,7 +39,7 @@ class LoginForm extends Component {
 
 		return (
 			<Button
-                onPress={() => this.logoutUser()}
+                onPress={() => this.onButtonPress()}
                 title="LOGIN "
                 titleStyle={{ fontWeight: 'bold' }}
                 buttonStyle={{

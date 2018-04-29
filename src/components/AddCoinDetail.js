@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 const AddCoinDetail = ({ coinProp, check, onChecked }) => {
     //Destructure references for nicer code
-    const { id, name, symbol } = coinProp;
+    const { id, name, symbol } = coinProp; //receive objects from api
     const { headerContentLeftStyle,
         headerContentRightStyle,
         headerTextStyle } = styles;
@@ -22,7 +22,6 @@ const AddCoinDetail = ({ coinProp, check, onChecked }) => {
             <View style={headerContentRightStyle}>
                 <CheckBox
                     containerStyle={{ backgroundColor: '#23213F', borderColor: '#23213F' }}
-                    checkedIcon='dot-circle-o'
                     checked={check}
                     // action to add to reducer for firebase pushing
                     onPress={onChecked}

@@ -1,12 +1,10 @@
 import {
     COINS_CHANGED,
-	COINS_SAVED,
-	ASSETS_CHANGED
+	COINS_SAVED
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    coins: [],
-    assets: []
+    coins: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -15,16 +13,13 @@ export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case COINS_CHANGED:
 			console.log(action.payload)
-			console.log("coin changed")
+			console.log(state.coins)
+			return { 
+				coins: [...state.coins, action.payload]
+			 }
 			//this.state.coins.push(action.payload)
-			return { ...state };
 		case COINS_SAVED:
 			return { ...state, coins: action.payload};
-		case ASSETS_CHANGED:
-			console.log(action.payload)
-			console.log("asset changed")
-			//this.state.assets.push(action.payload)
-			return { ...state};
 		default:
 			return state;
 	}
