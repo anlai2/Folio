@@ -7,7 +7,7 @@ import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { fetchCoins } from '../actions';
 
-class AddCoinScreen extends Component {
+class AddAssetsScreen extends Component {
     constructor(props) {
         super(props)
         const coins = []

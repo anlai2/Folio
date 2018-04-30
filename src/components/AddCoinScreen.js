@@ -3,7 +3,6 @@ import { Text, View, Picker, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
 import { CardSection } from './common';
-import { Actions } from 'react-native-router-flux';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { coinChanged, coinsSaved } from '../actions';
