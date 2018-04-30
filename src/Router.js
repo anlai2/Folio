@@ -22,7 +22,6 @@ const RouterComponent = () => {
 					<Scene
 						key="createUser"
 						component={CreateForm}
-						backTitle="Back"
 						navigationBarStyle={{ backgroundColor: '#2A033E' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }} />

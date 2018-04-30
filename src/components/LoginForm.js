@@ -59,15 +59,15 @@ class LoginForm extends Component {
 		return (
 			<View style={styles.backgroundContainer}>
 				<View style={styles.inputsContatiner}>
-					<CardSection>
+					<View style={styles.cardContainer}>
 						<Input
 							label="Email"
 							placeholder="example@email.com"
 							onChangeText={this.onEmailChange.bind(this)}
 							value={this.props.email}
 						/>
-					</CardSection>
-					<CardSection>
+					</View>
+					<View style={styles.cardContainer}>
 						<Input
 							secureTextEntry
 							label="Password"
@@ -75,17 +75,17 @@ class LoginForm extends Component {
 							onChangeText={this.onPasswordChange.bind(this)}
 							value={this.props.password}
 						/>
-					</CardSection>
+					</View>
 				</View>
 				<View style={styles.buttonStyle}>
-					<CardSection>
+				<View style={styles.cardContainer}>
 						{this.renderError()}
-					</CardSection>
+					</View>
 				</View>
 				<View style={styles.buttonStyle}>
-					<CardSection>
+				<View style={styles.cardContainer}>
 						{this.renderButton()}
-					</CardSection>
+					</View>
 				</View>
 			</View>
 		);
@@ -100,13 +100,22 @@ const styles = {
 	},
 	backgroundContainer: {
 		flex: 1,
-		backgroundColor: '#23213F'
+		backgroundColor: '#2A033E',
+		paddingTop: 150,
 	},
 	inputsContatiner: {
 		paddingTop: 10
 	},
 	buttonStyle: {
 		alignItems: 'center'
+	},
+	cardContainer: {
+		padding: 10,
+		backgroundColor: '#2A033E',
+		justifyContent: 'flex-start',
+		flexDirection: 'row',
+		borderRadius: 20,
+		position: 'relative'
 	}
 };
 
