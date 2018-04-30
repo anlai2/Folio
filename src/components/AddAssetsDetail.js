@@ -6,9 +6,9 @@ import { coinChanged, assetChanged } from '../actions';
 import { connect } from 'react-redux';
 import AddAssetsScreen from './AddAssetsScreen';
 
-const AddAssetsDetail = ({ coinProp, check, onChecked }) => {
+const AddAssetsDetail = ({ coinProp }) => {
     //Destructure references for nicer code
-    const { id, name, symbol } = coinProp; //receive objects from api
+    const { id, name, symbol, checked } = coinProp; //receive objects from api
     const { headerContentLeftStyle,
         headerContentRightStyle,
         headerTextStyle } = styles;
@@ -23,9 +23,9 @@ const AddAssetsDetail = ({ coinProp, check, onChecked }) => {
             <View style={headerContentRightStyle}>
                 <CheckBox
                     containerStyle={{ backgroundColor: '#23213F', borderColor: '#23213F' }}
-                    checked={check}
+                    checked={checked}
                     // action to add to reducer for firebase pushing
-                    onPress={onChecked}
+                    onPress={() => {checked: !checked}}
                 />
             </View>
         </CardSection>

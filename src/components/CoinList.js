@@ -4,7 +4,7 @@ import { ScrollView, View } from 'react-native';
 import CoinDetail from './CoinDetail';
 import GlobalDetail from './GlobalDetail';
 import { connect } from 'react-redux';
-import { CardSection } from './common';
+import { CardSection, Spinner } from './common';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
 import { logoutUserSuccess } from '../actions';
@@ -13,10 +13,12 @@ import { logoutUserSuccess } from '../actions';
 class CoinList extends Component {
   state = {
     coins: [],
-    global: {}
+    global: {},
+    loading: false
   };
   componentWillMount() {
     // ASYNC HTTP Request to get coins from the API.
+    this.setState({ loading: true })
     fetch('https://api.coinmarketcap.com/v1/global/')
       .then((response) => response.json())
       .then((responseData) => this.setState({ global: responseData }));
@@ -24,8 +26,10 @@ class CoinList extends Component {
 
     fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
       .then((response) => response.json())
-      .then((responseData) => this.setState({ coins: responseData }));
+      .then((responseData) => this.setState({ coins: responseData }))
+      .then(() => this.setState({ loading: false }))
     console.log(this.state.coins);
+
   }
 
   logoutUser() {
@@ -35,7 +39,7 @@ class CoinList extends Component {
 
   renderGlobal() {
     return (
-      <GlobalDetail coinProp={this.state.global}/>)
+      <GlobalDetail coinProp={this.state.global} />)
   }
 
   // Render all the coins that was fetched from the API.
@@ -47,36 +51,47 @@ class CoinList extends Component {
 
   // Render the component
   render() {
-    return (
-      <View style={styles.viewContainer}>
-        <LinearGradient
-          colors={['#452768', '#171032', '#04081B']}>
-          <ScrollView>
-            {/* <Header headerText="Dashboard" /> */}
-            {this.renderGlobal()}
-            {this.renderCoins()}
-            <CardSection>
-              <Button
-                onPress={() => this.logoutUser()}
-                title="LOGOUT "
-                titleStyle={{ fontWeight: 'bold' }}
-                buttonStyle={{
-                  backgroundColor: "rgba(92, 99,216, 1)",
-                  width: 300,
-                  height: 45,
-                  borderColor: "transparent",
-                  borderWidth: 0,
-                  borderRadius: 5
-                }}
-                containerStyle={{ marginTop: 20 }}
-              />
-            </CardSection>
-          </ScrollView>
-        </LinearGradient>
-      </View>
-    );
-  };
-};
+    if (this.state.loading) {
+      return (
+        <View style={styles.viewContainer}>
+          <View style={{ flex: 1, height: 250 }}>
+            <Spinner />
+          </View>
+        </View>
+      )
+    } else {
+      return (
+        <View style={styles.viewContainer}>
+          <LinearGradient
+            colors={['#452768', '#171032', '#04081B']}>
+            <ScrollView>
+              {/* <Header headerText="Dashboard" /> */}
+              {this.renderGlobal()}
+              {this.renderCoins()}
+              <CardSection>
+                <Button
+                  onPress={() => this.logoutUser()}
+                  title="LOGOUT "
+                  titleStyle={{ fontWeight: 'bold' }}
+                  buttonStyle={{
+                    backgroundColor: "rgba(92, 99,216, 1)",
+                    width: 300,
+                    height: 45,
+                    borderColor: "transparent",
+                    borderWidth: 0,
+                    borderRadius: 5
+                  }}
+                  containerStyle={{ marginTop: 20 }}
+                />
+              </CardSection>
+            </ScrollView>
+          </LinearGradient>
+        </View>
+      );
+    }
+  }
+}
+
 
 const styles = {
   viewContainer: {

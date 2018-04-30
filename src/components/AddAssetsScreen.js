@@ -11,7 +11,7 @@ class AddAssetsScreen extends Component {
     constructor(props) {
         super(props)
         const coins = []
-        const checked = false
+        //const checked = false
 
         this.state = { coins, checked }
     }
@@ -32,7 +32,7 @@ class AddAssetsScreen extends Component {
         return this.state.coins.map(coin =>
             <AddCoinDetail
                 key={coin.name}
-                check={this.state.checked}
+                check={coin.checked}
                 coinProp={coin}
                 onChecked={() => {
                     this.setState({ checked: !this.state.checked })
