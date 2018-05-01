@@ -101,7 +101,7 @@ const styles = {
 	backgroundContainer: {
 		flex: 1,
 		backgroundColor: '#2A033E',
-		paddingTop: 150,
+		paddingTop: 50,
 	},
 	inputsContatiner: {
 		paddingTop: 10
