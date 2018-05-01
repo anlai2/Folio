@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Picker, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
-import { CardSection } from './common';
+import { CardSection, Spinner } from './common';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { coinChanged, coinsSaved } from '../actions';
@@ -16,19 +16,20 @@ class AddCoinScreen extends Component {
 
         this.state = { coins, checked }
     }
+    state = { loading: false }
 
     componentWillMount() {
         // ASYNC HTTP Request to get coins from the API.
-        fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+        this.setState({ loading: true })
+        fetch('https://api.coinmarketcap.com/v1/ticker/?limit=250')
             .then((response) => response.json())
-            .then((responseData) => this.setState({ coins: responseData }));
+            .then((responseData) => this.setState({ coins: responseData }))
+            .then(() => this.setState({ loading: false }))
     }
 
     onButtonPress() {
-        const { coins } = this.props; 
-        console.log("hey there");
+        const { coins } = this.props;
         console.log(coins);
-        console.log("hey there1");
         this.props.coinsSaved({ coins })
         Actions.addAsset();
     }
@@ -49,36 +50,47 @@ class AddCoinScreen extends Component {
     }
 
     render() {
-        return (
-            <View style={styles.viewContainer}>
-                <LinearGradient
-                    colors={['#452768', '#171032', '#04081B']}>
-                    <ScrollView>
-                        <View style={styles.headerContainer}>
-                            <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                Pick Coin(s)
+        if (this.state.loading) {
+            return (
+                <View style={styles.viewContainer}>
+                    <View style={{ flex: 1, height: 250 }}>
+                        <Spinner />
+                    </View>
+                </View>
+            )
+        }
+        else {
+            return (
+                <View style={styles.viewContainer}>
+                    <LinearGradient
+                        colors={['#452768', '#171032', '#04081B']}>
+                        <ScrollView>
+                            <View style={styles.headerContainer}>
+                                <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
+                                    Pick Coin(s)
                             </Text>
-                        </View>
-                        <Button
-                            onPress={() => this.onButtonPress()}
-                            title="Add Coins "
-                            titleStyle={{ fontWeight: 'bold' }}
-                            buttonStyle={{
-                                backgroundColor: "rgba(92, 99,216, 1)",
-                                width: 300,
-                                height: 45,
-                                borderColor: "transparent",
-                                borderWidth: 0,
-                                borderRadius: 5,
-                                paddingLeft: 10
-                            }}
-                            containerStyle={{ marginTop: 20 }}
-                        />
-                        {this.renderCoins()}
-                    </ScrollView>
-                </LinearGradient>
-            </View>
-        );
+                            </View>
+                            <Button
+                                onPress={() => this.onButtonPress()}
+                                title="Add Coins "
+                                titleStyle={{ fontWeight: 'bold' }}
+                                buttonStyle={{
+                                    backgroundColor: "rgba(92, 99,216, 1)",
+                                    width: 300,
+                                    height: 45,
+                                    borderColor: "transparent",
+                                    borderWidth: 0,
+                                    borderRadius: 5,
+                                    paddingLeft: 10
+                                }}
+                                containerStyle={{ marginTop: 20 }}
+                            />
+                            {this.renderCoins()}
+                        </ScrollView>
+                    </LinearGradient>
+                </View>
+            );
+        }
     }
 }
 

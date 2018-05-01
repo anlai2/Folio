@@ -4,10 +4,11 @@
 - Add Coin Screen (DONE 4/20)
 - Add global market cap to top of coin list (DONE 4/28)
 - Functionality to Add Coin Screen 
-    -Checklist coins for user to add
+    -Checklist coins for user to add 
     -Insert assets for each coin that user entered before
     -Push to "coin": asset to firebase /portfolios/uid
 - Display Portfolio 
 - Add functionality to clickable coin list with twitter integration
 * Change auth to one time password with twilio integration 
-- Pull down to refresh and spinner while coins are loading (all screens)
+- Pull down to refresh (all screens)
+- Spinner while coins are loading (all screens) (DONE 4/30)
