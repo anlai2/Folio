@@ -23,7 +23,7 @@ class LoginForm extends Component {
 	renderError() {
 		if (this.props.error) {
 			return (
-				<View style={{ backgroundColor: '#23213F' }}>
+				<View style={{ backgroundColor: '#2A033E' }}>
 					<Text style={styles.errorTextStyle}>
 						{this.props.error}
 					</Text>
@@ -100,8 +100,7 @@ const styles = {
 	},
 	backgroundContainer: {
 		flex: 1,
-		backgroundColor: '#2A033E',
-		paddingTop: 50,
+		backgroundColor: '#2A033E'
 	},
 	inputsContatiner: {
 		paddingTop: 10
