@@ -6,7 +6,7 @@ import { CardSection, Spinner } from './common';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { coinChecked, coinUnchecked, coinsSaved } from '../actions';
-import AddCoinDetail from './AddCoinDetail';
+import AddAssetsDetail from './AddAssetsDetail';
 
 class AddAssetsScreen extends Component {
     state = { loading: false, coins: [] }
@@ -33,7 +33,7 @@ class AddAssetsScreen extends Component {
         const { checked } = this.props;
         return this.state.coins.map(coin =>
             checked.indexOf(coin.symbol) > -1 ? 
-            <AddCoinDetail
+            <AddAssetsDetail
                 key={coin.name}
                 check={checked.indexOf(coin.symbol) > -1 ? true : false}
                 coinProp={coin}
@@ -64,12 +64,12 @@ class AddAssetsScreen extends Component {
                         <ScrollView>
                             <View style={styles.headerContainer}>
                                 <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                    Pick Coin(s)
+                                    Add Asset(s)
                             </Text>
                             </View>
                             <Button
                                 onPress={() => this.onButtonPress()}
-                                title="Add Coins "
+                                title="Finish "
                                 titleStyle={{ fontWeight: 'bold' }}
                                 buttonStyle={{
                                     backgroundColor: "rgba(92, 99,216, 1)",

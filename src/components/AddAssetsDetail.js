@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import { Card, CardSection } from './common';
-import { CheckBox } from 'react-native-elements';
+import { Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { Card, CardSection, Input } from './common';
+// import { Input } from 'react-native-elements';
 import { coinChanged, assetChanged } from '../actions';
 import { connect } from 'react-redux';
 import AddAssetsScreen from './AddAssetsScreen';
@@ -21,11 +21,10 @@ const AddAssetsDetail = ({ coinProp }) => {
                 <Text style={styles.textSymbolStyle}>{symbol}</Text>
             </View>
             <View style={headerContentRightStyle}>
-                <CheckBox
-                    containerStyle={{ backgroundColor: '#23213F', borderColor: '#23213F' }}
-                    checked={checked}
-                    // action to add to reducer for firebase pushing
-                    onPress={() => {checked: !checked}}
+                <TextInput 
+                    placeholder="0.00"
+                    autoCorrect={false} //Turns off autocorrect for all users
+                    style={styles.inputStyle}
                 />
             </View>
         </CardSection>
@@ -69,6 +68,16 @@ const styles = {
     },
     greenText: {
         color: '#18A76D'
+    },
+    inputStyle: {
+        color: '#FFF',
+        backgroundColor: '#23213F', 
+        borderColor: '#23213F',
+        paddingRight: 5,
+		paddingLeft: 5,
+		fontSize: 24,
+		lineHeight: 23,
+		flex: 2
     }
 };
 
