@@ -4,7 +4,7 @@
 - Add Coin Screen (DONE 4/20)
 - Add global market cap to top of coin list (DONE 4/28)
 - Functionality to Add Coin Screen 
-    -Checklist coins for user to add 
+    -Checklist coins for user to add (DONE 5/2)
     -Insert assets for each coin that user entered before
     -Push to "coin": asset to firebase /portfolios/uid
 - Display Portfolio 
@@ -13,3 +13,6 @@
 - Pull down to refresh (all screens)
 - Spinner while coins are loading (all screens) (DONE 4/30)
 - Added spacing to global cap (DONE 5/2)
+
+Clean Up:
+Use Reducer states instead of this.state in screens

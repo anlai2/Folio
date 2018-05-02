@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { coinChanged, coinsSaved } from '../actions';
+import { coinChecked, coinsSaved } from '../actions';
 import AddCoinDetail from './AddCoinDetail';
 
 class AddCoinScreen extends Component {
@@ -28,22 +28,22 @@ class AddCoinScreen extends Component {
     }
 
     onButtonPress() {
-        const { coins } = this.props;
-        console.log(coins);
-        this.props.coinsSaved({ coins })
-        Actions.addAsset();
+        const { checked } = this.props;
+        console.log(checked);
+        this.props.coinsSaved({ checked })
+        //Actions.addAsset();
     }
 
     // Render all the coins that was fetched from the API.
     renderCoins() {
+        const { checked } = this.props;
         return this.state.coins.map(coin =>
             <AddCoinDetail
                 key={coin.name}
-                check={this.state.checked}
+                check={checked.indexOf(coin.symbol) > -1 ? true : false}
                 coinProp={coin}
                 onChecked={() => {
-                    this.setState({ checked: !this.state.checked })
-                    this.props.coinChanged({ value: coin.symbol })
+                    this.props.coinChecked({ value: coin.symbol })
                 }}
             />);
         //coinProp variable can be named anything as long as we use that name in other functions
@@ -114,12 +114,12 @@ const styles = {
 }
 
 const mapStateToProps = ({ portfolio }) => {
-    const { coins } = portfolio;
+    const { checked } = portfolio;
 
     return {
-        coins
+        checked
     };
 };
 export default connect(mapStateToProps, {
-    coinChanged, coinsSaved
+    coinChecked, coinsSaved
 })(AddCoinScreen);

@@ -1,22 +1,19 @@
 import {
-    COINS_CHANGED,
+    COIN_CHECKED,
 	COINS_SAVED
 } from '../actions/types';
 
 const INITIAL_STATE = {
-	coins: [] 
+	checked: [] 
 }
 
 export default (state = INITIAL_STATE, action) => {
-	console.log(action);
-
 	switch (action.type) {
-		case COINS_CHANGED:
-			console.log(action.payload)
-			console.log(state.coins)
+		case COIN_CHECKED:
 			return { 
-				coins: [...state.coins, action.payload]
+				checked: [...state.checked, action.payload]
 			 }
+			 console.log(checked);
 			//this.state.coins.push(action.payload)
 		case COINS_SAVED:
 			return { ...state };

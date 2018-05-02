@@ -7,6 +7,6 @@ export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER_START = 'login_user_start';
 export const LOGOUT_USER_SUCCESS = 'logout_user_success';
 
-export const COINS_CHANGED = 'coin_changed';
+export const COIN_CHECKED = 'coin_changed';
 export const COINS_SAVED = 'coins_saved';
 export const ASSETS_CHANGED = 'assets_changed';
