@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Card, CardSection } from './common';
 import { Button } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 
 const CoinDetail = ({ coinProp }) => {
 	//Destructure references for nicer code
@@ -11,7 +12,7 @@ const CoinDetail = ({ coinProp }) => {
 		headerTextStyle } = styles;
 
 	return (
-		<TouchableOpacity onPress={() => console.log(id)}>
+		<TouchableOpacity onPress={() => Actions.coinDetail({ coinName: id })}>
 			<CardSection>
 				<View style={headerContentLeftStyle}>
 					{/* <Text style={styles.textStyle}>{rank}</Text> */}

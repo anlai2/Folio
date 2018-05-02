@@ -8,6 +8,7 @@ import CoinList from './components/CoinList';
 import PortfolioScreen from './components/PortfolioScreen';
 import AddCoinScreen from './components/AddCoinScreen';
 import AddAssetsScreen from './components/AddAssetsScreen';
+import CoinDetailScreen from './components/CoinDetailScreen';
 
 const RouterComponent = () => {
 	return (
@@ -40,6 +41,13 @@ const RouterComponent = () => {
 					<Scene
 						key="coinList"
 						component={CoinList}
+						title="Dashboard"
+						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
+						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+					/>
+					<Scene
+						key="coinDetail"
+						component={CoinDetailScreen}
 						title="Dashboard"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
