@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { coinChecked, coinsSaved } from '../actions';
+import { coinChecked, coinUnchecked, coinsSaved } from '../actions';
 import AddCoinDetail from './AddCoinDetail';
 
 class AddCoinScreen extends Component {
@@ -43,7 +43,9 @@ class AddCoinScreen extends Component {
                 check={checked.indexOf(coin.symbol) > -1 ? true : false}
                 coinProp={coin}
                 onChecked={() => {
-                    this.props.coinChecked({ value: coin.symbol })
+                    checked.indexOf(coin.symbol) > -1 ?
+                        this.props.coinUnchecked({ value: checked.indexOf(coin.symbol) }) :
+                        this.props.coinChecked({ value: coin.symbol })
                 }}
             />);
         //coinProp variable can be named anything as long as we use that name in other functions
@@ -121,5 +123,5 @@ const mapStateToProps = ({ portfolio }) => {
     };
 };
 export default connect(mapStateToProps, {
-    coinChecked, coinsSaved
+    coinChecked, coinUnchecked, coinsSaved
 })(AddCoinScreen);
