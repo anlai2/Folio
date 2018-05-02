@@ -12,3 +12,4 @@
 * Change auth to one time password with twilio integration 
 - Pull down to refresh (all screens)
 - Spinner while coins are loading (all screens) (DONE 4/30)
+- Added spacing to global cap (DONE 5/2)

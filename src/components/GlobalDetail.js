@@ -19,7 +19,7 @@ const GlobalDetail = ({ coinProp }) => {
                 <View style={headerContentLeftStyle}>
                     <Text style={styles.textStyle}>Global Market Cap</Text>
                     <Button
-                        title={"$" + total_market_cap_usd}
+                        title={"$" + numberWithCommas(total_market_cap_usd)}
                         buttonStyle={{
                             backgroundColor: "rgba(92, 99,216, 1)",
                             borderWidth: 0,
