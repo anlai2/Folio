@@ -9,14 +9,7 @@ import { coinChecked, coinUnchecked, coinsSaved } from '../actions';
 import AddCoinDetail from './AddCoinDetail';
 
 class AddCoinScreen extends Component {
-    constructor(props) {
-        super(props)
-        const coins = []
-        const checked = false
-
-        this.state = { coins, checked }
-    }
-    state = { loading: false }
+    state = { loading: false, coins: [] }
 
     componentWillMount() {
         // ASYNC HTTP Request to get coins from the API.
@@ -31,7 +24,7 @@ class AddCoinScreen extends Component {
         const { checked } = this.props;
         console.log(checked);
         this.props.coinsSaved({ checked })
-        //Actions.addAsset();
+        Actions.addAsset();
     }
 
     // Render all the coins that was fetched from the API.

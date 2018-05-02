@@ -1,15 +1,16 @@
-import firebase from 'firebase'; 
+import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import {
     COIN_CHECKED,
     COIN_UNCHECKED,
-    COINS_SAVED
+    COINS_SAVED,
+    COINS_FETCHED
 } from './types';
 
 export const coinChecked = ({ value }) => {
-	return {
-		type: COIN_CHECKED,
-		payload: value
+    return {
+        type: COIN_CHECKED,
+        payload: value
     };
 }
 
@@ -27,5 +28,19 @@ export const coinsSaved = ({ checked }) => {
         dispatch({ type: COINS_SAVED });
         firebase.database().ref(`/portfolios/${currentUser.uid}/`)
             .set({ checked })
+    }
+}
+export const coinsFetched = () => {
+    const { currentUser } = firebase.auth();
+
+    return (dispatch) => {
+        dispatch({ type: COINS_FETCHED })
+
+        return (dispatch) => {
+            firebase.database().ref(`/portfolios/${currentUser.uid}/checked`)
+                .on('value', snapshot => {
+                    dispatch({ type: COINS_FETCHED, payload: snapshot.val() });
+                });
+        }
     }
 }

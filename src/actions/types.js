@@ -10,4 +10,5 @@ export const LOGOUT_USER_SUCCESS = 'logout_user_success';
 export const COIN_CHECKED = 'coin_changed';
 export const COIN_UNCHECKED = 'coin_unchecked';
 export const COINS_SAVED = 'coins_saved';
+export const COINS_FETCHED = 'coins_fetched';
 export const ASSETS_CHANGED = 'assets_changed';

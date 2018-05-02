@@ -2,7 +2,8 @@ import _ from 'lodash';
 import {
 	COIN_CHECKED,
 	COIN_UNCHECKED,
-	COINS_SAVED
+	COINS_SAVED,
+	COINS_FETCHED
 } from '../actions/types';
 
 const INITIAL_STATE = {
