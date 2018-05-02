@@ -44,6 +44,10 @@ const RouterComponent = () => {
 						title="Dashboard"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						rightButtonImage={require('../assets/portfolio.png')}
+						rightTitle="Portfolio"
+						onRight={() => Actions.portfolioScreen()}
+						rightButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="coinDetail"
@@ -51,10 +55,6 @@ const RouterComponent = () => {
 						title="Dashboard"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
-						rightButtonImage={require('../assets/portfolio.png')}
-						rightTitle="Portfolio"
-						onRight={() => Actions.portfolioScreen()}
-						rightButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="portfolioScreen"

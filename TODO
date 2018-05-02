@@ -1,3 +1,6 @@
+Move CMC API versions before deprecation
+Public API Version 1 will be taken offline on November 30th, 2018.
+
 * Use only RN elements
 - Add routing (DONE 4/14)
 - Portfolio Screen (DONE 4/20)
