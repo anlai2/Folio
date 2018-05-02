@@ -37,7 +37,7 @@ const RouterComponent = () => {
 					/>
 				</Scene>
 
-				<Scene key="main">
+				<Scene key="main" initial>
 					<Scene
 						key="coinList"
 						component={CoinList}
@@ -52,7 +52,7 @@ const RouterComponent = () => {
 					<Scene
 						key="coinDetail"
 						component={CoinDetailScreen}
-						title="Dashboard"
+						title="Coin Detail"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
 					/>
