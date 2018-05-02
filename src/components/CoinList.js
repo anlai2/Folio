@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, RefreshControl } from 'react-native';
 import CoinDetail from './CoinDetail';
 import GlobalDetail from './GlobalDetail';
 import { connect } from 'react-redux';
@@ -14,10 +14,16 @@ class CoinList extends Component {
   state = {
     coins: [],
     global: {},
-    loading: false
+    loading: false,
+    refreshing: false
   };
   componentWillMount() {
     // ASYNC HTTP Request to get coins from the API.
+    this.fetchCoins();
+
+  }
+
+  fetchCoins() {
     this.setState({ loading: true })
     fetch('https://api.coinmarketcap.com/v1/global/')
       .then((response) => response.json())
@@ -29,7 +35,18 @@ class CoinList extends Component {
       .then((responseData) => this.setState({ coins: responseData }))
       .then(() => this.setState({ loading: false }))
     console.log(this.state.coins);
+  }
 
+  refreshCoins() {
+    this.setState({ refreshing: true })
+    fetch('https://api.coinmarketcap.com/v1/global/')
+      .then((response) => response.json())
+      .then((responseData) => this.setState({ global: responseData }));
+
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+      .then((response) => response.json())
+      .then((responseData) => this.setState({ coins: responseData }))
+      .then(() => this.setState({ refreshing: false }))
   }
 
   logoutUser() {
@@ -64,7 +81,14 @@ class CoinList extends Component {
         <View style={styles.viewContainer}>
           <LinearGradient
             colors={['#452768', '#171032', '#04081B']}>
-            <ScrollView>
+            <ScrollView
+              refreshControl={
+                <RefreshControl
+                  refreshing={this.state.refreshing}
+                  onRefresh={() => this.refreshCoins()}
+                />
+              }
+            >
               {/* <Header headerText="Dashboard" /> */}
               {this.renderGlobal()}
               {this.renderCoins()}
