@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, Linking } from 'react-native';
 import { LinearGradient } from 'expo';
 import { CardSection } from './common';
+import { Button } from 'react-native-elements';
 
 class CoinDetailScreen extends Component {
     state = { coinDetail: [] }
@@ -32,7 +33,7 @@ class CoinDetailScreen extends Component {
                 </View>
                 <View style={styles.detailContainer}>
                     <Text style={styles.symbolTextStyle}>
-                        Details: 
+                        Details:
                     </Text>
                     <Text style={styles.detailTextStyle}>
                         {"1 Hour Change: " + coin.percent_change_1h + "%"}
@@ -45,6 +46,23 @@ class CoinDetailScreen extends Component {
                     <Text style={styles.detailTextStyle}>
                         {"7 Day Change: " + coin.percent_change_7d + "%"}
                     </Text>
+                    <View>
+                        <Button
+                            onPress={() => Linking.openURL(`https://twitter.com/search?q=%23${coin.name}&src=typd&lang=en`)}
+                            title="View Tweets "
+                            titleStyle={{ fontWeight: 'bold' }}
+                            buttonStyle={{
+                                backgroundColor: "rgba(92, 99,216, 1)",
+                                width: 300,
+                                height: 45,
+                                borderColor: "transparent",
+                                borderWidth: 0,
+                                borderRadius: 5,
+                                paddingLeft: 10
+                            }}
+                            containerStyle={{ marginTop: 20 }}
+                        />
+                    </View>
                 </View>
             </View>
         );
