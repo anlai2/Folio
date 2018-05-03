@@ -11,11 +11,14 @@ Public API Version 1 will be taken offline on November 30th, 2018.
     -Insert assets for each coin that user entered before
     -Push to "coin": asset to firebase /portfolios/uid
 - Display Portfolio 
-- Add functionality to clickable coin list with twitter integration
+- Add functionality to clickable coin list with twitter integration (ADDED 5/2)
+    - Display Coin Details
+    - Twitter Feed or Button for Url
 * Add auth to one time password with twilio integration 
 - Pull down to refresh (all screens) (DONE 5/2)
 - Spinner while coins are loading (all screens) (DONE 4/30)
-- Added spacing to global cap (DONE 5/2)
+- Add spacing to global cap (DONE 5/2)
+- Add news screen (DONE 5/2)
 
 Clean Up:
 Use Reducer states instead of this.state in screens

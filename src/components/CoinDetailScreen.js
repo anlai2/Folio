@@ -5,7 +5,9 @@ import { CardSection } from './common';
 import { Button } from 'react-native-elements';
 
 class CoinDetailScreen extends Component {
-    state = { coinDetail: [] }
+    state = { 
+        coinDetail: [] 
+    }
     componentWillMount() {
         fetch(`https://api.coinmarketcap.com/v1/ticker/${this.props.coinName}/`)
             .then((response) => response.json())

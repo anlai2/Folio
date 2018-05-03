@@ -9,7 +9,7 @@ class NewsScreen extends Component {
 
     componentWillMount() {
         const apiKey = '7bc09cc2fa8b4f6d8190d17dca63b344';
-        axios.get(`https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=${apiKey}`)
+        axios.get(`https://newsapi.org/v2/everything?sources=crypto-coins-news&apiKey=${apiKey}`)
             .then(response => this.setState({ headlines: response.data.articles }));
     }
 

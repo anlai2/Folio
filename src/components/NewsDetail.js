@@ -1,13 +1,14 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
-import { Button, CardSection } from './common';
-import { Card } from 'react-native-elements';
+import { CardSection } from './common';
+import { Card, Button } from 'react-native-elements';
 const NewsDetail = ({ headline }) => {
     const { title, description, urlToImage, url } = headline;
     const {
         thumbnailStyle,
         headerContentStyle,
         thumbnailContainerStyle,
+        descriptionTextStyle,
         headerTextStyle,
         imageStyle
     } = styles;
@@ -19,6 +20,7 @@ const NewsDetail = ({ headline }) => {
             <CardSection>
                 <View style={headerContentStyle}>
                     <Text style={headerTextStyle}>{title}</Text>
+                    <Text style={descriptionTextStyle}>{description}</Text>
                 </View>
             </CardSection>
 
@@ -30,9 +32,16 @@ const NewsDetail = ({ headline }) => {
             </CardSection>
 
             <CardSection>
-                <Button onPress={() => Linking.openURL(url)}>
-                    Read More
-        </Button>
+                <Button 
+                onPress={() => Linking.openURL(url)}
+                title="Read More"
+                buttonStyle={{
+                    backgroundColor: "rgba(92, 99,216, 1)",
+                    borderWidth: 0,
+                    borderRadius: 60,
+                    paddingHorizontal: 25
+                }}
+                />
             </CardSection>
         </Card>
     );
@@ -46,6 +55,9 @@ const styles = {
     headerTextStyle: {
         fontSize: 18,
         color: 'white'
+    },
+    descriptionTextStyle: {
+        color: 'gray'
     },
     thumbnailStyle: {
         height: 50,
