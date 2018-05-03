@@ -25,6 +25,7 @@ const AddAssetsDetail = ({ coinProp }) => {
                     placeholder="0.00"
                     autoCorrect={false} //Turns off autocorrect for all users
                     style={styles.inputStyle}
+                    keyboardType='numeric'
                 />
             </View>
         </CardSection>
