@@ -20,11 +20,14 @@ const GlobalDetail = ({ coinProp }) => {
                     <Text style={styles.textStyle}>Global Market Cap</Text>
                     <Button
                         title={"$" + numberWithCommas(total_market_cap_usd)}
+                        titleStyle={{ fontSize: 56 }}
                         buttonStyle={{
                             backgroundColor: "rgba(92, 99,216, 1)",
                             borderWidth: 0,
-                            borderRadius: 60
+                            borderRadius: 60,
+                            paddingHorizontal: 25
                         }}
+                        onPress={() => console.log(id)}
                     />
                 </View>
             </CardSection>

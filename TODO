@@ -12,8 +12,8 @@ Public API Version 1 will be taken offline on November 30th, 2018.
     -Push to "coin": asset to firebase /portfolios/uid
 - Display Portfolio 
 - Add functionality to clickable coin list with twitter integration
-* Change auth to one time password with twilio integration 
-- Pull down to refresh (all screens)
+* Add auth to one time password with twilio integration 
+- Pull down to refresh (all screens) (DONE 5/2)
 - Spinner while coins are loading (all screens) (DONE 4/30)
 - Added spacing to global cap (DONE 5/2)
 

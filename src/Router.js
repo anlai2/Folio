@@ -9,6 +9,7 @@ import PortfolioScreen from './components/PortfolioScreen';
 import AddCoinScreen from './components/AddCoinScreen';
 import AddAssetsScreen from './components/AddAssetsScreen';
 import CoinDetailScreen from './components/CoinDetailScreen';
+import NewsScreen from './components/NewsScreen';
 
 const RouterComponent = () => {
 	return (
@@ -44,6 +45,9 @@ const RouterComponent = () => {
 						title="Dashboard"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						leftTitle="News"
+						onLeft={() => Actions.newsScreen()}
+						leftButtonTextStyle={{ color: '#FFF' }}
 						rightButtonImage={require('../assets/portfolio.png')}
 						rightTitle="Portfolio"
 						onRight={() => Actions.portfolioScreen()}
@@ -53,6 +57,14 @@ const RouterComponent = () => {
 						key="coinDetail"
 						component={CoinDetailScreen}
 						title="Coin Detail"
+						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
+						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+					/>
+					<Scene
+						key="newsScreen"
+						component={NewsScreen}
+						onBack={() => Actions.pop()}
+						title="News"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#4F3170' }}
 					/>

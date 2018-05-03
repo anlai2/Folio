@@ -48,7 +48,7 @@ class CoinDetailScreen extends Component {
                     </Text>
                     <View>
                         <Button
-                            onPress={() => Linking.openURL(`https://twitter.com/search?q=%23${coin.name}&src=typd&lang=en`)}
+                            onPress={() => Linking.openURL(`https://twitter.com/search?f=tweets&vertical=news&q=%23${coin.name}&src=typd`)}
                             title="View Tweets "
                             titleStyle={{ fontWeight: 'bold' }}
                             buttonStyle={{
@@ -57,8 +57,7 @@ class CoinDetailScreen extends Component {
                                 height: 45,
                                 borderColor: "transparent",
                                 borderWidth: 0,
-                                borderRadius: 5,
-                                paddingLeft: 10
+                                borderRadius: 5
                             }}
                             containerStyle={{ marginTop: 20 }}
                         />
