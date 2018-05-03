@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
-import { Button, Card, CardSection } from './common';
-
+import { Button, CardSection } from './common';
+import { Card } from 'react-native-elements';
 const NewsDetail = ({ headline }) => {
     const { title, description, urlToImage, url } = headline;
     const {
@@ -13,7 +13,9 @@ const NewsDetail = ({ headline }) => {
     } = styles;
 
     return (
-        <Card>
+        <Card
+            containerStyle={{ backgroundColor: '#23213F' }}
+        >
             <CardSection>
                 <View style={headerContentStyle}>
                     <Text style={headerTextStyle}>{title}</Text>
@@ -42,7 +44,8 @@ const styles = {
         justifyContent: 'space-around'
     },
     headerTextStyle: {
-        fontSize: 18
+        fontSize: 18,
+        color: 'white'
     },
     thumbnailStyle: {
         height: 50,
