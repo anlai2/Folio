@@ -6,7 +6,7 @@ import { coinChanged, assetChanged } from '../actions';
 import { connect } from 'react-redux';
 import AddAssetsScreen from './AddAssetsScreen';
 
-const AddAssetsDetail = ({ coinProp }) => {
+const AddAssetsDetail = ({ coinProp, onChangeText }) => {
     //Destructure references for nicer code
     const { id, name, symbol, checked } = coinProp; //receive objects from api
     const { headerContentLeftStyle,
@@ -26,6 +26,7 @@ const AddAssetsDetail = ({ coinProp }) => {
                     autoCorrect={false} //Turns off autocorrect for all users
                     style={styles.inputStyle}
                     keyboardType='numeric'
+                    onChangeText={onChangeText}
                 />
             </View>
         </CardSection>

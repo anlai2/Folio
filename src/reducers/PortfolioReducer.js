@@ -3,7 +3,8 @@ import {
 	COIN_CHECKED,
 	COIN_UNCHECKED,
 	COINS_SAVED,
-	COINS_FETCHED
+	COINS_FETCHED,
+	ASSETS_CHANGED
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -31,10 +32,18 @@ export default (state = INITIAL_STATE, action) => {
 			console.log(...state.checked);
 		case COINS_SAVED:
 			console.log(state);
+			// Map array of checked coins to an obj of coins as keys with 0 value
 			return {
 				...state,
-				coins: Object.assign(...state.checked.map(x => ({[x]: 0})))
+				coins: Object.assign(...state.checked.map(x => ({ [x]: 0 })))
 			};
+			console.log(state);
+		case ASSETS_CHANGED:
+			console.log(state);
+			return {
+				...state,
+				coins: { ...state.coins, [action.payload.coin]: action.payload.value }
+			}
 			console.log(state);
 		default:
 			return state;

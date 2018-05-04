@@ -4,7 +4,8 @@ import {
     COIN_CHECKED,
     COIN_UNCHECKED,
     COINS_SAVED,
-    COINS_FETCHED
+    COINS_FETCHED,
+    ASSETS_CHANGED
 } from './types';
 
 export const coinChecked = ({ value }) => {
@@ -40,3 +41,10 @@ export const coinsFetched = () => {
         }
     }
 }
+
+export const assetChanged = ({ coin, value }) => {
+    return {
+        type: ASSETS_CHANGED,
+        payload: { coin, value }
+    }
+}   

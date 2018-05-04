@@ -24,7 +24,7 @@ class AddCoinScreen extends Component {
         const { checked } = this.props;
         console.log(checked);
         this.props.coinsSaved()
-        //Actions.addAsset();
+        Actions.addAsset();
     }
 
     // Render all the coins that was fetched from the API.
