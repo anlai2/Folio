@@ -21,13 +21,9 @@ export const coinUnchecked = ({ value }) => {
     };
 }
 
-export const coinsSaved = ({ checked }) => {
-    const { currentUser } = firebase.auth();
-
+export const coinsSaved = () => {
     return (dispatch) => {
         dispatch({ type: COINS_SAVED });
-        firebase.database().ref(`/portfolios/${currentUser.uid}/`)
-            .set({ checked })
     }
 }
 export const coinsFetched = () => {
