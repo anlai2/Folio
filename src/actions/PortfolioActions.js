@@ -6,7 +6,8 @@ import {
     COINS_SAVED,
     COINS_FETCHED,
     ASSETS_CHANGED,
-    ASSETS_SAVED
+    ASSETS_SAVED,
+    PORTFOLIO_FETCH
 } from './types';
 
 export const coinChecked = ({ value }) => {
@@ -57,5 +58,16 @@ export const assetSaved = (coins) => {
         firebase.database().ref(`/portfolios/${currentUser.uid}`)
             .set(coins)
             .then(dispatch({ type: ASSETS_SAVED }))
+    }
+}
+
+export const fetchPortfolio = () => {
+    const { currentUser } = firebase.auth();
+
+    return (dispatch) => {
+        firebase.database().ref(`portfolios/${currentUser.uid}/coins`)
+            .on('value', snapshot => {
+                dispatch({ type: PORTFOLIO_FETCH, payload: snapshot.val() });
+            })
     }
 }

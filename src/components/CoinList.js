@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { CardSection, Spinner } from './common';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
-import { logoutUserSuccess } from '../actions';
+import { logoutUserSuccess, fetchPortfolio } from '../actions';
 
 // Class component
 class CoinList extends Component {
@@ -20,7 +20,7 @@ class CoinList extends Component {
   componentWillMount() {
     // ASYNC HTTP Request to get coins from the API.
     this.fetchCoins();
-
+    this.props.fetchPortfolio();
   }
 
   fetchCoins() {
@@ -124,15 +124,16 @@ const styles = {
   }
 }
 
-const mapStateToProps = ({ auth }) => {
-  const { email, password, error, loading } = auth;
+const mapStateToProps = ({ auth, portfolio }) => {
+  const { email, password, error, loading, coins } = { auth, portfolio };
   return {
     email,
     password,
     error,
-    loading
+    loading,
+    coins
   };
 };
 export default connect(mapStateToProps, {
-  logoutUserSuccess
+  logoutUserSuccess, fetchPortfolio
 })(CoinList);
