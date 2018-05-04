@@ -30,10 +30,12 @@ export default (state = INITIAL_STATE, action) => {
 			}
 			console.log(...state.checked);
 		case COINS_SAVED:
-			return { 
+			console.log(state);
+			return {
 				...state,
-				coins: Object.assign.apply(null, ...state.checked.map(x => ({[x]: 0}))) 
+				coins: Object.assign(...state.checked.map(x => ({[x]: 0})))
 			};
+			console.log(state);
 		default:
 			return state;
 	}
