@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
 import { Button, Card } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { coinChecked, coinUnchecked, coinsSaved, assetChanged } from '../actions';
+import { coinChecked, coinUnchecked, assetSaved, assetChanged } from '../actions';
 import AddAssetsDetail from './AddAssetsDetail';
 
 class AddAssetsScreen extends Component {
@@ -22,10 +22,9 @@ class AddAssetsScreen extends Component {
     }
 
     onButtonPress() {
-        const { checked } = this.props;
-        console.log(checked);
-        this.props.coinsSaved({ checked })
-        Actions.addAsset();
+        const { coins } = this.props;
+        this.props.assetSaved({ coins })
+        //Actions.addAsset();
     }
 
     // Render all the coins that was fetched from the API.
@@ -107,12 +106,12 @@ const styles = {
 }
 
 const mapStateToProps = ({ portfolio }) => {
-    const { checked } = portfolio;
+    const { checked, coins } = portfolio;
 
     return {
-        checked
+        checked, coins
     };
 };
 export default connect(mapStateToProps, {
-    coinChecked, coinUnchecked, coinsSaved, assetChanged
+    coinChecked, coinUnchecked, assetSaved, assetChanged
 })(AddAssetsScreen);

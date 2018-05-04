@@ -4,7 +4,8 @@ import {
 	COIN_UNCHECKED,
 	COINS_SAVED,
 	COINS_FETCHED,
-	ASSETS_CHANGED
+	ASSETS_CHANGED,
+	ASSETS_SAVED
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -45,6 +46,10 @@ export default (state = INITIAL_STATE, action) => {
 				coins: { ...state.coins, [action.payload.coin]: action.payload.value }
 			}
 			console.log(state);
+		case ASSETS_SAVED:
+			return {
+				...state
+			}
 		default:
 			return state;
 	}

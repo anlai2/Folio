@@ -22,7 +22,7 @@ const AddAssetsDetail = ({ coinProp, onChangeText }) => {
             </View>
             <View style={headerContentRightStyle}>
                 <TextInput 
-                    placeholder="0.00"
+                    placeholder="0.0000000"
                     autoCorrect={false} //Turns off autocorrect for all users
                     style={styles.inputStyle}
                     keyboardType='numeric'
@@ -46,7 +46,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'flex-end',
         // justifyContent:'center',
-        flex: 1
+        paddingRight: 25
     },
     headerTextStyle: {
         fontWeight: 'bold',
@@ -75,11 +75,8 @@ const styles = {
         color: '#FFF',
         backgroundColor: '#23213F', 
         borderColor: '#23213F',
-        paddingRight: 5,
-		paddingLeft: 5,
 		fontSize: 24,
-		lineHeight: 23,
-		flex: 2
+		width: 100
     }
 };
 

@@ -5,7 +5,8 @@ import {
     COIN_UNCHECKED,
     COINS_SAVED,
     COINS_FETCHED,
-    ASSETS_CHANGED
+    ASSETS_CHANGED,
+    ASSETS_SAVED
 } from './types';
 
 export const coinChecked = ({ value }) => {
@@ -47,4 +48,14 @@ export const assetChanged = ({ coin, value }) => {
         type: ASSETS_CHANGED,
         payload: { coin, value }
     }
-}   
+}
+
+export const assetSaved = (coins) => {
+    const { currentUser } = firebase.auth();
+
+    return (dispatch) => {
+        firebase.database().ref(`/portfolios/${currentUser.uid}`)
+            .set(coins)
+            .then(dispatch({ type: ASSETS_SAVED }))
+    }
+}
