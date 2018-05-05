@@ -40,7 +40,7 @@ class CreateForm extends Component {
 
 		return (
 			<Button
-				onPress={() => this.logoutUser()}
+				onPress={() => this.onButtonPress()}
 				title="CREATE ACCOUNT "
 				titleStyle={{ fontWeight: 'bold' }}
 				buttonStyle={{
@@ -101,8 +101,7 @@ const styles = {
 	},
 	backgroundContainer: {
 		flex: 1,
-		backgroundColor: '#2A033E',
-		paddingTop: 50
+		backgroundColor: '#2A033E'
 	},
 	inputsContatiner: {
 		paddingTop: 10

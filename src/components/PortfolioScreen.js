@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { Text, View, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -30,21 +31,21 @@ class PortfolioScreen extends Component {
 
     // Render all the coins that was fetched from the API.
     renderPortfolio() {
-        return this.state.coins.map(coin => 
-            ( coin.symbol in this.state.portfolio ?
-            <PortfolioCoins 
-            key={coin.name} 
-            coinProp={coin}
-            asset={this.state.portfolio[coin.symbol]}
-            usd_value={(Math.round((this.state.portfolio[coin.symbol] * coin.price_usd) * 100) / 100)
-                .toString()
-            }
-            /> : null ));
+        return this.state.coins.map(coin =>
+            (coin.symbol in this.state.portfolio ?
+                <PortfolioCoins
+                    key={coin.name}
+                    coinProp={coin}
+                    asset={this.state.portfolio[coin.symbol]}
+                    usd_value={(Math.round((this.state.portfolio[coin.symbol] * coin.price_usd) * 100) / 100)
+                        .toString()
+                    }
+                /> : null));
         //coinProp variable can be named anything as long as we use that name in other functions
     }
 
     render() {
-        ( this.state.portfolio === {} ? null : () => this.getPortfolio())
+        (this.state.portfolio === {} ? null : () => this.getPortfolio())
         if (this.state.loading) {
             return (
                 <View style={styles.viewContainer} >
@@ -84,7 +85,10 @@ class PortfolioScreen extends Component {
                                     containerStyle={{ marginTop: 20 }}
                                 />
                             </CardSection>
-                            {this.renderPortfolio()}
+                            {_.isEmpty(this.state.portfolio) ?
+                                null :
+                                this.renderPortfolio()
+                            }
                         </ScrollView>
                     </LinearGradient>
                 </View>
