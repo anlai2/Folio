@@ -30,8 +30,13 @@ class PortfolioScreen extends Component {
 
     // Render all the coins that was fetched from the API.
     renderPortfolio() {
-        return this.state.coins.map(coin =>
-            <PortfolioCoins key={coin.name} coinProp={coin} />);
+        return this.state.coins.map(coin => 
+            ( coin.symbol in this.state.portfolio ?
+            <PortfolioCoins 
+            key={coin.name} 
+            coinProp={coin}
+            asset={this.state.portfolio[coin.symbol]}
+            /> : null ));
         //coinProp variable can be named anything as long as we use that name in other functions
     }
 

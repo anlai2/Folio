@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { Card, CardSection } from './common';
 import { Button, CheckBox } from 'react-native-elements';
 
-const PortfolioCoins = ({ coinProp }) => {
+const PortfolioCoins = ({ coinProp, asset }) => {
 	//Destructure references for nicer code
 	const { id, name, symbol, price_usd } = coinProp;
 	const { headerContentLeftStyle,
@@ -20,7 +20,7 @@ const PortfolioCoins = ({ coinProp }) => {
 				</View>
 				<View style={headerContentRightStyle}>
 				<Button
-						title={"$" + price_usd}
+						title={asset}
 						buttonStyle={{
 							backgroundColor: "rgba(92, 99,216, 1)",
 							// width: 120,
