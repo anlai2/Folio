@@ -36,6 +36,9 @@ class PortfolioScreen extends Component {
             key={coin.name} 
             coinProp={coin}
             asset={this.state.portfolio[coin.symbol]}
+            usd_value={(Math.round((this.state.portfolio[coin.symbol] * coin.price_usd) * 100) / 100)
+                .toString()
+            }
             /> : null ));
         //coinProp variable can be named anything as long as we use that name in other functions
     }
