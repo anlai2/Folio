@@ -48,7 +48,7 @@ class PortfolioScreen extends Component {
     }
 
     // Render all the coins that was fetched from the API.
-    renderPortfolio() {
+    renderPortfolio = () => {
         return this.state.coins.map(coin =>
             (coin.symbol in this.state.portfolio ?
                 <PortfolioCoins
@@ -118,7 +118,9 @@ class PortfolioScreen extends Component {
                                 />
                             </View>
                             : null}
-                        {this.renderPortfolio()}
+                        {_.isEmpty(this.state.portfolio) ?
+                            null :
+                            this.renderPortfolio}
                     </ScrollView>
                 </LinearGradient>
             );
