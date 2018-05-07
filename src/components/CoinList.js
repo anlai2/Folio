@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
 import { ScrollView, View, RefreshControl } from 'react-native';
 import CoinDetail from './CoinDetail';
 import GlobalDetail from './GlobalDetail';
@@ -17,8 +16,8 @@ class CoinList extends Component {
     loading: false,
     refreshing: false
   };
+
   componentWillMount() {
-    // ASYNC HTTP Request to get coins from the API.
     this.fetchCoins();
     this.props.fetchPortfolio();
   }

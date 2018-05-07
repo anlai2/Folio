@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements';
 
 const GlobalDetail = ({ coinProp }) => {
     //Destructure references for nicer code
-    const { total_market_cap_usd } = coinProp;
+    const { total_market_cap_usd, id } = coinProp;
     const { headerContentLeftStyle,
         headerTextStyle } = styles;
 

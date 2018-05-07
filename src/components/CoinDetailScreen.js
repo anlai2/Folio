@@ -18,6 +18,7 @@ class CoinDetailScreen extends Component {
         return this.state.coinDetail.map(coin =>
             <View
                 key={coin.name}
+                style={{ flex: 1 }}
             >
                 <View
                     style={styles.symbolContainer}
@@ -30,6 +31,11 @@ class CoinDetailScreen extends Component {
                     <View>
                         <Text style={styles.symbolTextStyle}>
                             {"$" + coin.price_usd}
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.symbolTextStyle}>
+                            {"Rank " + coin.rank}
                         </Text>
                     </View>
                 </View>
@@ -48,7 +54,7 @@ class CoinDetailScreen extends Component {
                     <Text style={styles.detailTextStyle}>
                         {"7 Day Change: " + coin.percent_change_7d + "%"}
                     </Text>
-                    <View>
+                    <View style={{ paddingTop: 25, justifyContent: 'center', alignItems: 'center' }}>
                         <Button
                             onPress={() => Linking.openURL(`https://twitter.com/search?f=tweets&vertical=news&q=%23${coin.name}&src=typd`)}
                             title="View Tweets "
