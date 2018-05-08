@@ -6,13 +6,14 @@ import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
 import { connect } from 'react-redux';
 import { fetchPortfolio } from '../actions';
-import { Button, Card } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import PortfolioCoins from './PortfolioCoins';
 
 class PortfolioScreen extends Component {
     state = {
         coins: [],
         portfolio: {},
+        portfolioTotal: 0,
         loading: false,
         refreshing: false
     };
@@ -43,10 +44,6 @@ class PortfolioScreen extends Component {
         this.setState({ portfolio: this.props.coins })
     }
 
-    getAssetValue = (price, asset) => {
-        return price * coin.price;
-    }
-
     // Render all the coins that was fetched from the API.
     renderPortfolio = () => {
         return this.state.coins.map(coin =>
@@ -63,7 +60,22 @@ class PortfolioScreen extends Component {
     }
 
     render() {
-        (this.state.portfolio === {} ? null : () => this.getPortfolio())
+        let portfolioTotal = 0;
+        let coinValue;
+        for (let coinType in this.state.portfolio) {
+            coinValue = this.state.coins.filter((item) => item.symbol === coinType)[0];
+            portfolioTotal += this.state.portfolio[coinType] * coinValue.price_usd;
+            //console.log();
+        }
+        portfolioTotal = Math.round(portfolioTotal * 100) / 100;
+
+        // Object.values(this.state.portfolio).forEach((value) => {
+        //     portfolioTotal += value * 
+        // })
+        (this.state.portfolio === {} ? null : () => {
+            this.getPortfolio();
+            this.getPortfolioTotal();
+        })
         if (this.state.loading) {
             return (
                 <LinearGradient
@@ -89,15 +101,11 @@ class PortfolioScreen extends Component {
                             />
                         }
                     >
-                        <Card
-                            containerStyle={styles.cardContainer}
-                        >
-                            <View style={{ backgroundColor: "#23213F", padding: 10, alignItems: "center" }}>
-                                <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                    Portfolio Value:
+                        <View style={{ backgroundColor: "#23213F", padding: 10, alignItems: "center" }}>
+                            <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
+                                {"Portfolio Value: $" + portfolioTotal}
                             </Text>
-                            </View>
-                        </Card>
+                        </View>
                         {_.isEmpty(this.state.portfolio) ?
                             <View style={styles.addCoinButton}>
                                 <Button

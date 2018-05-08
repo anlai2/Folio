@@ -5,8 +5,8 @@ import { CardSection } from './common';
 import { Button } from 'react-native-elements';
 
 class CoinDetailScreen extends Component {
-    state = { 
-        coinDetail: [] 
+    state = {
+        coinDetail: []
     }
     componentWillMount() {
         fetch(`https://api.coinmarketcap.com/v1/ticker/${this.props.coinName}/`)
@@ -78,15 +78,15 @@ class CoinDetailScreen extends Component {
 
     render() {
         return (
-            <View style={styles.viewContainer}>
-                <LinearGradient
-                    colors={['#452768', '#171032', '#04081B']}>
-                    <ScrollView>
-                        {/* <Header headerText="Dashboard" /> */}
-                        {this.renderDetails()}
-                    </ScrollView>
-                </LinearGradient>
-            </View>
+            <LinearGradient
+                colors={['#452768', '#171032']}
+                style={styles.viewContainer}
+                >
+                <ScrollView>
+                    {/* <Header headerText="Dashboard" /> */}
+                    {this.renderDetails()}
+                </ScrollView>
+            </LinearGradient>
         )
     }
 }
