@@ -22,7 +22,10 @@ Public API Version 1 will be taken offline on November 30th, 2018.
 - Spinner while coins are loading (all screens) (DONE 4/30)
 - Add spacing to global cap (DONE 5/2)
 - Add news screen (DONE 5/2)
+- Apply AsyncStorage for user login tokens so users don't have to login everytime
 
 Clean Up:
 Use Reducer states instead of this.state in screens
-Adding more coins updates existing coins but erases those that weren't checked for updates
+
+Issues:
+*** Adding more coins updates existing coins but erases those that weren't checked for updates
