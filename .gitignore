@@ -2,3 +2,5 @@ node_modules/**/*
 .expo/*
 npm-debug.*
 functions/node_modules
+functions/twilio.js
+functions/service_account.json
