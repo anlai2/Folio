@@ -120,7 +120,7 @@ class PortfolioScreen extends Component {
                             : null}
                         {_.isEmpty(this.state.portfolio) ?
                             null :
-                            this.renderPortfolio}
+                            this.renderPortfolio()}
                     </ScrollView>
                 </LinearGradient>
             );
