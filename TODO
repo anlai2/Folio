@@ -13,9 +13,9 @@ Public API Version 1 will be taken offline on November 30th, 2018.
     -Push to "coin": asset to firebase /portfolios/uid (DONE 5/4)
 - Display Portfolio 
     -Display Coin USD Values (DONE 5/4)
-    -Display Total Coin USD Values 
+    -Display Total Coin USD Values (DONE 5/7)
 - Add functionality to clickable coin list with twitter integration (ADDED 5/2)
-    - Display Coin Details
+    - Display Coin Details ()
     - Twitter Feed or Button for Url
 * Add auth to one time password with twilio integration 
 - Pull down to refresh (all screens) (DONE 5/2)

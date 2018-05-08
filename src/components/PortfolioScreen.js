@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
 import { connect } from 'react-redux';
 import { fetchPortfolio } from '../actions';
-import { Button } from 'react-native-elements';
+import { Button, Card } from 'react-native-elements';
 import PortfolioCoins from './PortfolioCoins';
 
 class PortfolioScreen extends Component {
@@ -68,7 +68,7 @@ class PortfolioScreen extends Component {
             //console.log();
         }
         portfolioTotal = Math.round(portfolioTotal * 100) / 100;
-
+        portfolioTotal = portfolioTotal.toString();
         // Object.values(this.state.portfolio).forEach((value) => {
         //     portfolioTotal += value * 
         // })
@@ -101,11 +101,23 @@ class PortfolioScreen extends Component {
                             />
                         }
                     >
-                        <View style={{ backgroundColor: "#23213F", padding: 10, alignItems: "center" }}>
-                            <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                {"Portfolio Value: $" + portfolioTotal}
-                            </Text>
-                        </View>
+                        <CardSection>
+                            <View style={styles.totalContainerStyle}>
+                                <Text style={styles.totalTextStyle}>
+                                    {"Portfolio Value"}
+                                </Text>
+                                <Button
+                                    title={"$" + portfolioTotal}
+                                    textStyle={{ fontSize: 24 }}
+                                    buttonStyle={{
+                                        backgroundColor: "rgba(92, 99,216, 1)",
+                                        borderWidth: 0,
+                                        borderRadius: 60,
+                                        paddingHorizontal: 25
+                                    }}
+                                />
+                            </View>
+                        </CardSection>
                         {_.isEmpty(this.state.portfolio) ?
                             <View style={styles.addCoinButton}>
                                 <Button
@@ -140,9 +152,17 @@ const styles = {
     viewContainer: {
         flex: 1
     },
-    cardContainer: {
-        backgroundColor: 'rgba(92, 99,216, 1)',
-        borderColor: '#000'
+    totalContainerStyle: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        marginLeft: 15
+    },
+    totalTextStyle: {
+        justifyContent: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 24
     },
     addCoinButton: {
         justifyContent: 'center',

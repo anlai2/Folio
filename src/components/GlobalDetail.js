@@ -9,29 +9,26 @@ const GlobalDetail = ({ coinProp }) => {
     const { headerContentLeftStyle,
         headerTextStyle } = styles;
 
-    numberWithCommas = (x) => {
+    numberWithSpaces = (x) => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
     return (
-        <TouchableOpacity onPress={() => console.log(id)}>
-            <CardSection>
-                <View style={headerContentLeftStyle}>
-                    <Text style={styles.textStyle}>Global Market Cap</Text>
-                    <Button
-                        title={"$" + numberWithCommas(total_market_cap_usd)}
-                        titleStyle={{ fontSize: 56 }}
-                        buttonStyle={{
-                            backgroundColor: "rgba(92, 99,216, 1)",
-                            borderWidth: 0,
-                            borderRadius: 60,
-                            paddingHorizontal: 25
-                        }}
-                        onPress={() => console.log(id)}
-                    />
-                </View>
-            </CardSection>
-        </TouchableOpacity>
+        <CardSection>
+            <View style={headerContentLeftStyle}>
+                <Text style={styles.textStyle}>Global Market Cap</Text>
+                <Button
+                    title={"$" + numberWithSpaces(total_market_cap_usd)}
+                    textStyle={{ fontSize: 24 }}
+                    buttonStyle={{
+                        backgroundColor: "rgba(92, 99,216, 1)",
+                        borderWidth: 0,
+                        borderRadius: 60,
+                        paddingHorizontal: 25
+                    }}
+                />
+            </View>
+        </CardSection>
     );
 };
 
