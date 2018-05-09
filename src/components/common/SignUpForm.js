@@ -81,8 +81,8 @@ class SignInForm extends Component {
                         onChangeText={phone => this.setState({ phone })}
                     />
                 </View>
-                {this.renderStatus()}
                 {this.renderButton()}
+                {this.renderStatus()}
             </View>
         );
     }

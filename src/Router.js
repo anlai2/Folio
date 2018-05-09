@@ -10,6 +10,7 @@ import AddCoinScreen from './components/AddCoinScreen';
 import AddAssetsScreen from './components/AddAssetsScreen';
 import CoinDetailScreen from './components/CoinDetailScreen';
 import NewsScreen from './components/NewsScreen';
+import PhoneAuthScreen from './components/PhoneAuthScreen';
 
 const RouterComponent = () => {
 	return (
@@ -36,6 +37,12 @@ const RouterComponent = () => {
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }}
 					/>
+					<Scene
+						key="phoneAuth"
+						component={PhoneAuthScreen}
+						navigationBarStyle={{ backgroundColor: '#2A033E' }}
+						backButtonImage={require('../assets/back.png')}
+						backButtonTextStyle={{ color: '#FFF' }} />
 				</Scene>
 
 				<Scene key="main">
