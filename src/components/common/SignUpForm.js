@@ -41,24 +41,30 @@ class SignInForm extends Component {
 
     renderButton() {
         if (this.state.loading) {
-            return <Spinner size="large" />;
+            return (
+                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Spinner size="large" />
+                </View>
+            );
         }
 
         return (
-            <Button
-                onPress={() => this.handleSubmit()}
-                title="SIGN UP "
-                titleStyle={{ fontWeight: 'bold' }}
-                buttonStyle={{
-                    backgroundColor: "rgba(92, 99,216, 1)",
-                    width: 300,
-                    height: 45,
-                    borderColor: "transparent",
-                    borderWidth: 0,
-                    borderRadius: 5
-                }}
-                containerStyle={{ marginTop: 20 }}
-            />
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Button
+                    onPress={() => this.handleSubmit()}
+                    title="SIGN UP "
+                    titleStyle={{ fontWeight: 'bold' }}
+                    buttonStyle={{
+                        backgroundColor: "rgba(92, 99,216, 1)",
+                        width: 300,
+                        height: 45,
+                        borderColor: "transparent",
+                        borderWidth: 0,
+                        borderRadius: 5
+                    }}
+                    containerStyle={{ marginTop: 20 }}
+                />
+            </View>
         );
     }
 

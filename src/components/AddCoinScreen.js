@@ -60,11 +60,7 @@ class AddCoinScreen extends Component {
                     <LinearGradient
                         colors={['#452768', '#171032', '#04081B']}>
                         <ScrollView>
-                            <View style={styles.headerContainer}>
-                                <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                    Pick Coin(s)
-                            </Text>
-                            </View>
+                        <View style={styles.buttonContainer}>
                             <Button
                                 onPress={() => this.onButtonPress()}
                                 title="Add Coins "
@@ -80,6 +76,7 @@ class AddCoinScreen extends Component {
                                 }}
                                 containerStyle={{ marginTop: 20 }}
                             />
+                            </View>
                             {this.renderCoins()}
                         </ScrollView>
                     </LinearGradient>
@@ -93,6 +90,12 @@ const styles = {
     viewContainer: {
         flex: 1,
         backgroundColor: "#2A033E"
+    },
+    buttonContainer: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     cardContainer: {
         backgroundColor: 'rgba(92, 99,216, 1)',
