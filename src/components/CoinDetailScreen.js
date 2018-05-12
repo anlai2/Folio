@@ -6,13 +6,40 @@ import { Button } from 'react-native-elements';
 
 class CoinDetailScreen extends Component {
     state = {
-        coinDetail: []
+        coinDetail: [],
+        twitterResponse: null,
+
     }
+
+    //     'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+    //  oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+    //  oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+    //  oauth_token="access-token-for-authed-user", oauth_version="1.0"'
+
     componentWillMount() {
+        var data = {
+            authorization: 'OAuth',
+            oauth_consumer_key: 'JuFTuDh0b7iF0DD6GIiqFzOYS',
+            oauth_nonce: 'generated-none',
+            oauth_signature: 'generated-signature',
+            oauth_signature_method: 'HMAC-SHA1',
+            oauth_timestamp: 'generated-timestamp',
+            oauth_token: '0YOXFtM2gQv9cIcEMcSBhhyNBjWwRR0ot9s4MlbET1HrP',
+            oauth_version: '1.0'
+        }
+
         fetch(`https://api.coinmarketcap.com/v1/ticker/${this.props.coinName}/`)
             .then((response) => response.json())
             .then((responseData) => this.setState({ coinDetail: responseData }));
+
+        fetch(`https://api.twitter.com/1.1/search/tweets.json?q=${this.props.coinName}`, {
+            method: 'GET',
+            headers: JSON.stringify(data)
+        })
+            .then((response) => response.json())
+            .then((responseData) => console.log(responseData))
     }
+
 
     renderDetails() {
         return this.state.coinDetail.map(coin =>
@@ -81,7 +108,7 @@ class CoinDetailScreen extends Component {
             <LinearGradient
                 colors={['#452768', '#171032']}
                 style={styles.viewContainer}
-                >
+            >
                 <ScrollView>
                     {/* <Header headerText="Dashboard" /> */}
                     {this.renderDetails()}
