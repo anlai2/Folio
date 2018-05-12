@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { Card, CardSection } from './common';
+import {LinearGradient} from 'expo';
 import { Button } from 'react-native-elements';
 
 const GlobalDetail = ({ coinProp }) => {
@@ -14,21 +15,12 @@ const GlobalDetail = ({ coinProp }) => {
     }
 
     return (
-        <CardSection>
-            <View style={headerContentLeftStyle}>
+        
+            <LinearGradient style={headerContentLeftStyle}
+                colors={['#FF5637', '#FF444A', '#FF2D68']}>
                 <Text style={styles.textStyle}>Global Market Cap</Text>
-                <Button
-                    title={"$" + numberWithSpaces(total_market_cap_usd)}
-                    textStyle={{ fontSize: 24 }}
-                    buttonStyle={{
-                        backgroundColor: "rgba(92, 99,216, 1)",
-                        borderWidth: 0,
-                        borderRadius: 60,
-                        paddingHorizontal: 25
-                    }}
-                />
-            </View>
-        </CardSection>
+                <Text style={styles.textValueStyle}>{"$" + numberWithSpaces(total_market_cap_usd)}</Text>
+            </LinearGradient>
     );
 };
 
@@ -37,7 +29,13 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
-        marginLeft: 15
+        padding: 30,
+        margin: 10,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+
     },
     headerTextStyle: {
         fontWeight: 'bold',
@@ -48,8 +46,15 @@ const styles = {
     textStyle: {
         justifyContent: 'center',
         color: 'white',
+        fontWeight: '300',
+        fontSize: 15,
+        marginBottom: 20,
+    },
+    textValueStyle: {
+        justifyContent: 'center',
+        color: 'white',
         fontWeight: 'bold',
-        fontSize: 24
+        fontSize: 24,
     }
 };
 export default GlobalDetail;

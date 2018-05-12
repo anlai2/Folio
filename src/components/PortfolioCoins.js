@@ -18,17 +18,7 @@ const PortfolioCoins = ({ coinProp, asset, usd_value }) => {
 				<Text style={styles.textSymbolStyle}>{asset}</Text>
 			</View>
 			<View style={headerContentRightStyle}>
-				<Button
-					title={"$" + usd_value}
-					buttonStyle={{
-						backgroundColor: "rgba(92, 99,216, 1)",
-						// width: 120,
-						// height: 50,
-						// borderColor: "transparent",
-						borderWidth: 0,
-						borderRadius: 60
-					}}
-				/>
+				<Text style={headerTextStyle}>{"$" + usd_value}</Text>
 			</View>
 		</CardSection>
 	);
@@ -53,12 +43,12 @@ const styles = {
 		fontWeight: 'bold',
 		marginBottom: 10,
 		fontSize: 20,
-		color: 'white'
+		color:'#434343'
 	},
 	textPercentStyle: {
 		justifyContent: 'flex-end',
 		alignItems: 'flex-end',
-		color: 'white',
+		color: '#434343',
 		fontSize: 15,
 		marginRight: 20,
 		fontWeight: '700'

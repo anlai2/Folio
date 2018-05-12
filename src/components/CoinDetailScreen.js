@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, Linking } from 'react-native';
+import { Text, View, ScrollView, Linking, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo';
 import { CardSection } from './common';
 import { Button } from 'react-native-elements';
@@ -45,59 +45,36 @@ class CoinDetailScreen extends Component {
         return this.state.coinDetail.map(coin =>
             <View
                 key={coin.name}
-                style={{ flex: 1 }}
+                style={{ flex: 1}}
             >
-                <View
-                    style={styles.symbolContainer}
+                <LinearGradient style={styles.symbolContainer}
+                    colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                    <Text style={styles.symbolTextStyle}>{coin.name + " (" + coin.symbol + ")"}</Text>
+                    <Text style={styles.symbolTextStyle}>{"$" + coin.price_usd}</Text>
+                </LinearGradient>
+                <CardSection>
+                    <View style={styles.contentContainer}>
+                        <Text style={styles.detailTextStyle}>
+                            {"1 Hour Change: " + coin.percent_change_1h + "%"}
+                        </Text>
+                        <Text style={styles.detailTextStyle}>
+                            {"24 Hour Change: " + coin.percent_change_24h + "%"}
+                        </Text>
+                        <Text style={styles.detailTextStyle}>
+                            {"7 Day Change: " + coin.percent_change_7d + "%"}
+                        </Text>
+                    </View>
+                </CardSection>
+                <TouchableOpacity
+                    style={{alignItems:'center', justifyContent: 'center'}}
+                    onPress={() => Linking.openURL(`https://twitter.com/search?f=tweets&vertical=news&q=%23${coin.name}&src=typd`)}
                 >
-                    <View>
-                        <Text style={styles.symbolTextStyle}>
-                            {coin.name + " (" + coin.symbol + ")"}
-                        </Text>
-                    </View>
-                    <View>
-                        <Text style={styles.symbolTextStyle}>
-                            {"$" + coin.price_usd}
-                        </Text>
-                    </View>
-                    <View>
-                        <Text style={styles.symbolTextStyle}>
-                            {"Rank " + coin.rank}
-                        </Text>
-                    </View>
-                </View>
-                <View style={styles.detailContainer}>
-                    <Text style={styles.symbolTextStyle}>
-                        Details:
-                    </Text>
-                    <Text style={styles.detailTextStyle}>
-                        {"1 Hour Change: " + coin.percent_change_1h + "%"}
-                    </Text>
-
-                    <Text style={styles.detailTextStyle}>
-                        {"24 Hour Change: " + coin.percent_change_24h + "%"}
-                    </Text>
-
-                    <Text style={styles.detailTextStyle}>
-                        {"7 Day Change: " + coin.percent_change_7d + "%"}
-                    </Text>
-                    <View style={{ paddingTop: 25, justifyContent: 'center', alignItems: 'center' }}>
-                        <Button
-                            onPress={() => Linking.openURL(`https://twitter.com/search?f=tweets&vertical=news&q=%23${coin.name}&src=typd`)}
-                            title="View Tweets "
-                            titleStyle={{ fontWeight: 'bold' }}
-                            buttonStyle={{
-                                backgroundColor: "rgba(92, 99,216, 1)",
-                                width: 300,
-                                height: 45,
-                                borderColor: "transparent",
-                                borderWidth: 0,
-                                borderRadius: 5
-                            }}
-                            containerStyle={{ marginTop: 20 }}
-                        />
-                    </View>
-                </View>
+                    <LinearGradient
+                        style={styles.tweetButtonContainer}
+                        colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                        <Text style={styles.tweetButtonText}>View Tweets</Text>
+                    </LinearGradient>
+                </TouchableOpacity>
             </View>
         );
         //coinProp variable can be named anything as long as we use that name in other functions
@@ -105,15 +82,13 @@ class CoinDetailScreen extends Component {
 
     render() {
         return (
-            <LinearGradient
-                colors={['#452768', '#171032']}
-                style={styles.viewContainer}
+            <View style={styles.viewContainer}
             >
                 <ScrollView>
                     {/* <Header headerText="Dashboard" /> */}
                     {this.renderDetails()}
                 </ScrollView>
-            </LinearGradient>
+            </View>
         )
     }
 }
@@ -121,24 +96,54 @@ class CoinDetailScreen extends Component {
 const styles = {
     viewContainer: {
         flex: 1,
-        backgroundColor: "#2A033E"
+        backgroundColor: "#F0F2F6"
+    },
+    contentContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        // justifyContent:'center',
+        flex: 1
     },
     symbolContainer: {
-        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flex: 1,
+        padding: 30,
+        margin: 10,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
     },
     detailContainer: {
         flex: 1
     },
     symbolTextStyle: {
-        color: '#FFF',
+        color: 'white',
         fontSize: 24,
         fontWeight: 'bold'
     },
     detailTextStyle: {
-        color: '#FFF',
-        fontSize: 18
+        color: '#434343',
+        fontSize: 15,
+        margin: 5,
+    },
+    tweetButtonContainer: {
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        width: 300,
+        height: 45,
+        padding: 15,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+    },
+    tweetButtonText: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'white',
     }
 }
 

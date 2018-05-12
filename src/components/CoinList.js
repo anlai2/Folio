@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, RefreshControl } from 'react-native';
+import { Text, ScrollView, View, RefreshControl, TouchableOpacity } from 'react-native';
 import CoinDetail from './CoinDetail';
 import GlobalDetail from './GlobalDetail';
 import { connect } from 'react-redux';
@@ -78,8 +78,7 @@ class CoinList extends Component {
     } else {
       return (
         <View style={styles.viewContainer}>
-          <LinearGradient
-            colors={['#452768', '#171032', '#04081B']}>
+          <View style={{backgroundColor: 'white'}}>
             <ScrollView
               refreshControl={
                 <RefreshControl
@@ -91,24 +90,18 @@ class CoinList extends Component {
               {/* <Header headerText="Dashboard" /> */}
               {this.renderGlobal()}
               {this.renderCoins()}
-              <CardSection>
-                <Button
-                  onPress={() => this.logoutUser()}
-                  title="LOGOUT "
-                  titleStyle={{ fontWeight: 'bold' }}
-                  buttonStyle={{
-                    backgroundColor: "rgba(92, 99,216, 1)",
-                    width: 300,
-                    height: 45,
-                    borderColor: "transparent",
-                    borderWidth: 0,
-                    borderRadius: 5
-                  }}
-                  containerStyle={{ marginTop: 20 }}
-                />
-              </CardSection>
+              <TouchableOpacity
+                style={{ alignItems: 'center', justifyContent: 'center' }}
+                onPress={() => this.logoutUser()}
+              >
+                <LinearGradient
+                  style={styles.logoutButtonContainer}
+                  colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                  <Text style={styles.logoutButtonText}>LOGOUT</Text>
+                </LinearGradient>
+              </TouchableOpacity>
             </ScrollView>
-          </LinearGradient>
+          </View>
         </View>
       );
     }
@@ -119,7 +112,24 @@ class CoinList extends Component {
 const styles = {
   viewContainer: {
     flex: 1,
-    backgroundColor: "#2A033E"
+    backgroundColor: "#F0F2F6"
+  },
+  logoutButtonContainer: {
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    width: 300,
+    height: 45,
+    padding: 15,
+    borderRadius: 20,
+    shadowOffset: { width: 3, height: 3, },
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
+  },
+  logoutButtonText: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'white',
   }
 }
 

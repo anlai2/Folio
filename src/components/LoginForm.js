@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
@@ -38,20 +38,16 @@ class LoginForm extends Component {
 		}
 
 		return (
-			<Button
-                onPress={() => this.onButtonPress()}
-                title="LOGIN "
-                titleStyle={{ fontWeight: 'bold' }}
-                buttonStyle={{
-                  backgroundColor: "rgba(92, 99,216, 1)",
-                  width: 300,
-                  height: 45,
-                  borderColor: "transparent",
-                  borderWidth: 0,
-                  borderRadius: 5
-                }}
-                containerStyle={{ marginTop: 20 }}
-              />
+			<TouchableOpacity
+				style={{ alignItems: 'center', justifyContent: 'center' }}
+				onPress={() => this.onButtonPress()}
+			>
+				<LinearGradient
+					style={styles.loginButtonContainer}
+					colors={['#FF5637', '#FF444A', '#FF2D68']}>
+					<Text style={styles.loginButtonText}>LOGIN</Text>
+				</LinearGradient>
+			</TouchableOpacity>
 		);
 	}
 
@@ -100,7 +96,7 @@ const styles = {
 	},
 	backgroundContainer: {
 		flex: 1,
-		backgroundColor: '#2A033E'
+		backgroundColor: 'white'
 	},
 	inputsContatiner: {
 		paddingTop: 10
@@ -110,11 +106,28 @@ const styles = {
 	},
 	cardContainer: {
 		padding: 10,
-		backgroundColor: '#2A033E',
+		backgroundColor: 'white',
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
 		borderRadius: 20,
 		position: 'relative'
+	},
+	loginButtonContainer: {
+		justifyContent: 'center',
+		backgroundColor: 'transparent',
+		alignItems: 'center',
+		width: 300,
+		height: 45,
+		padding: 15,
+		borderRadius: 20,
+		shadowOffset: { width: 3, height: 3, },
+		shadowColor: 'black',
+		shadowOpacity: 0.2,
+	},
+	loginButtonText: {
+		fontWeight: 'bold',
+		fontSize: 20,
+		color: 'white',
 	}
 };
 

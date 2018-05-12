@@ -38,7 +38,7 @@ const styles = {
 		flex: 1, //fills up all space availible and is not sharing w/ any children
 		flexDirection: 'row',
 		alignItems: 'center',
-		backgroundColor: '#23213F',
+		backgroundColor: '#FF5636',
 		borderRadius: 50
 	}
 };

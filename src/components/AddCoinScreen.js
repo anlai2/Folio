@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Picker, ScrollView } from 'react-native';
+import { Text, View, Picker, ScrollView, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
@@ -57,11 +57,10 @@ class AddCoinScreen extends Component {
         else {
             return (
                 <View style={styles.viewContainer}>
-                    <LinearGradient
-                        colors={['#452768', '#171032', '#04081B']}>
+                    <View style={{ backgroundColor: 'white' }}>
                         <ScrollView>
-                        <View style={styles.buttonContainer}>
-                            <Button
+                            <View style={styles.buttonContainer}>
+                                {/* <Button
                                 onPress={() => this.onButtonPress()}
                                 title="Add Coins "
                                 titleStyle={{ fontWeight: 'bold' }}
@@ -75,11 +74,21 @@ class AddCoinScreen extends Component {
                                     paddingLeft: 10
                                 }}
                                 containerStyle={{ marginTop: 20 }}
-                            />
+                            /> */}
+                                <TouchableOpacity
+                                    onPress={() => this.onButtonPress()}
+                                >
+                                <LinearGradient
+                                    style={styles.addButtonContainer}
+                                    colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                                    
+                                        <Text style={styles.addButtonText}>Add Coins</Text>
+                                </LinearGradient>
+                                </TouchableOpacity>
                             </View>
                             {this.renderCoins()}
                         </ScrollView>
-                    </LinearGradient>
+                    </View>
                 </View>
             );
         }
@@ -89,13 +98,30 @@ class AddCoinScreen extends Component {
 const styles = {
     viewContainer: {
         flex: 1,
-        backgroundColor: "#2A033E"
+        backgroundColor: "white"
     },
     buttonContainer: {
         paddingTop: 10,
         paddingBottom: 10,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    addButtonContainer: {
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        width: 300,
+        height: 45,
+        padding: 15,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+    },
+    addButtonText: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'white',
     },
     cardContainer: {
         backgroundColor: 'rgba(92, 99,216, 1)',

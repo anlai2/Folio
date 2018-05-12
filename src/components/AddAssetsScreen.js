@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Picker, ScrollView } from 'react-native';
+import { Text, View, Picker, ScrollView, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
 import { CardSection, Spinner } from './common';
@@ -55,32 +55,22 @@ class AddAssetsScreen extends Component {
         else {
             return (
                 <View style={styles.viewContainer}>
-                    <LinearGradient
-                        colors={['#452768', '#171032', '#04081B']}>
+                    <View style={{backgroundColor: 'white'}}>
                         <ScrollView>
-                            <View style={styles.headerContainer}>
-                                <Text style={{ fontWeight: 'bold', color: '#FFF' }}>
-                                    Add Asset(s)
-                            </Text>
+                            <View style={styles.buttonContainer}>
+                                <TouchableOpacity
+                                    onPress={() => this.onButtonPress()}
+                                >
+                            <LinearGradient
+                                style={styles.addAssetContainer}
+                                colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                                    <Text style={styles.addButtonText}>Finish</Text>
+                            </LinearGradient>
+                                </TouchableOpacity>
                             </View>
-                            <Button
-                                onPress={() => this.onButtonPress()}
-                                title="Finish "
-                                titleStyle={{ fontWeight: 'bold' }}
-                                buttonStyle={{
-                                    backgroundColor: "rgba(92, 99,216, 1)",
-                                    width: 300,
-                                    height: 45,
-                                    borderColor: "transparent",
-                                    borderWidth: 0,
-                                    borderRadius: 5,
-                                    paddingLeft: 10
-                                }}
-                                containerStyle={{ marginTop: 20 }}
-                            />
                             {this.renderCoins()}
                         </ScrollView>
-                    </LinearGradient>
+                    </View>
                 </View>
             );
         }
@@ -90,11 +80,16 @@ class AddAssetsScreen extends Component {
 const styles = {
     viewContainer: {
         flex: 1,
-        backgroundColor: "#2A033E"
+        backgroundColor: "white"
+    },
+    buttonContainer: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     cardContainer: {
         backgroundColor: 'rgba(92, 99,216, 1)',
-        borderColor: '#000'
     },
     headerContainer: {
         backgroundColor: "#23213F",
@@ -103,7 +98,24 @@ const styles = {
         alignItems: "center",
         height: 50,
         borderRadius: 50
-    }
+    },
+    addButtonText: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'white',
+    },
+    addAssetContainer: {
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        width: 300,
+        height: 45,
+        padding: 15,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+    },
 }
 
 const mapStateToProps = ({ portfolio }) => {

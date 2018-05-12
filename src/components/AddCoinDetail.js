@@ -16,12 +16,11 @@ const AddCoinDetail = ({ coinProp, check, onChecked }) => {
         <CardSection>
             <View style={headerContentLeftStyle}>
                 {/* <Text style={styles.textStyle}>{rank}</Text> */}
-                <Text style={headerTextStyle}>{name}      </Text>
+                <Text style={headerTextStyle}>{name}</Text>
                 <Text style={styles.textSymbolStyle}>{symbol}</Text>
             </View>
             <View style={headerContentRightStyle}>
                 <CheckBox
-                    containerStyle={{ backgroundColor: '#23213F', borderColor: '#23213F' }}
                     checked={check}
                     // action to add to reducer for firebase pushing
                     onPress={onChecked}
@@ -50,12 +49,12 @@ const styles = {
         fontWeight: 'bold',
         marginBottom: 10,
         fontSize: 20,
-        color: 'white'
+        color: '#434343'
     },
     textPercentStyle: {
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
-        color: 'white',
+        color: '#434343',
         fontSize: 15,
         marginRight: 20,
         fontWeight: '700'

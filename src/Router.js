@@ -18,14 +18,14 @@ const RouterComponent = () => {
 			<Stack key="root" hideNavBar>
 				<Scene key="auth">
 					<Scene
-						key="intro"
+						key="intro" hideNavBar
 						component={IntroScreen}
-						navigationBarStyle={{ backgroundColor: '#2A033E' }}
+						// navigationBarStyle={{ backgroundColor: 'white' }}
 					/>
 					<Scene
 						key="createUser"
 						component={CreateForm}
-						navigationBarStyle={{ backgroundColor: '#2A033E' }}
+						navigationBarStyle={{ backgroundColor: 'white' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }} />
 					<Scene
@@ -33,14 +33,14 @@ const RouterComponent = () => {
 						component={LoginForm}
 						// title="MoonShot"
 						// titleStyle={{ color: "white" }} 
-						navigationBarStyle={{ backgroundColor: '#2A033E' }}
+						navigationBarStyle={{ backgroundColor: 'white' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="phoneAuth"
 						component={PhoneAuthScreen}
-						navigationBarStyle={{ backgroundColor: '#2A033E' }}
+						navigationBarStyle={{ backgroundColor: 'white' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }} />
 				</Scene>
@@ -51,7 +51,7 @@ const RouterComponent = () => {
 						component={CoinList}
 						title="Dashboard"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
-						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 						leftTitle="News"
 						onLeft={() => Actions.newsScreen()}
 						leftButtonTextStyle={{ color: '#FFF' }}
@@ -65,7 +65,7 @@ const RouterComponent = () => {
 						component={CoinDetailScreen}
 						title="Coin Detail"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
-						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 					/>
 					<Scene
 						key="newsScreen"
@@ -73,7 +73,7 @@ const RouterComponent = () => {
 						onBack={() => Actions.pop()}
 						title="News"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
-						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 					/>
 					<Scene
 						key="portfolioScreen"
@@ -81,7 +81,7 @@ const RouterComponent = () => {
 						onBack={() => Actions.pop()}
 						title="Portfolio"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
-						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 						rightTitle="Add Coin"
 						onRight={() => Actions.addCoin()}
 						rightButtonTextStyle={{ color: '#FFF' }}
@@ -91,14 +91,14 @@ const RouterComponent = () => {
 						component={AddCoinScreen}
 						title="Add Coin"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
-						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 					/>
 					<Scene
 						key="addAsset"
 						component={AddAssetsScreen}
 						title="Add Assets"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
-						navigationBarStyle={{ backgroundColor: '#4F3170' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 					/>
 				</Scene>
 			</Stack>

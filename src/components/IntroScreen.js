@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import { Font } from 'expo';
 import LoginForm from './LoginForm'
 
-import LOGO from '../../assets/moonshot.gif';
+import LOGO from '../../assets/folio.png';
 
 
 export default class IntroScreen extends React.Component {
@@ -22,12 +22,6 @@ export default class IntroScreen extends React.Component {
             source={LOGO}
             style={styles.logo}
           />
-          <Text style={{
-            fontSize: 30,
-            fontWeight: '700',
-            color: 'white'
-          }}>MOONSHOT  </Text>
-
         </View>
         <View style={styles.buttonContainer}>
         <TouchableOpacity
@@ -56,7 +50,7 @@ export default class IntroScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2A033E',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -68,7 +62,7 @@ const styles = StyleSheet.create({
   logo: {
     resizeMode: 'cover',
     width: 400,
-    height: 300,
+    height: 400,
     marginBottom: 10
 
   },
@@ -78,7 +72,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-around',
     padding: 15,
-    backgroundColor: 'rgba(92, 99,216, 1)',
+    backgroundColor: '#FF5636',
   },
   button: {
     fontSize: 20,

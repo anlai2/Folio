@@ -17,7 +17,7 @@ const AddAssetsDetail = ({ coinProp, onChangeText }) => {
         <CardSection>
             <View style={headerContentLeftStyle}>
                 {/* <Text style={styles.textStyle}>{rank}</Text> */}
-                <Text style={headerTextStyle}>{name}      </Text>
+                <Text style={headerTextStyle}>{name}</Text>
                 <Text style={styles.textSymbolStyle}>{symbol}</Text>
             </View>
             <View style={headerContentRightStyle}>
@@ -52,12 +52,12 @@ const styles = {
         fontWeight: 'bold',
         marginBottom: 10,
         fontSize: 20,
-        color: 'white'
+        color: '#434343'
     },
     textPercentStyle: {
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
-        color: 'white',
+        color: '#434343',
         fontSize: 15,
         marginRight: 20,
         fontWeight: '700'
@@ -72,10 +72,10 @@ const styles = {
         color: '#18A76D'
     },
     inputStyle: {
-        color: '#FFF',
-        backgroundColor: '#23213F', 
-        borderColor: '#23213F',
-		fontSize: 24,
+        color: '#434343',
+        backgroundColor: 'transparent',
+        borderBottomColor: '#434343',
+		fontSize: 15,
 		width: 100
     }
 };

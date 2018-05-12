@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import { Card, CardSection } from './common';
 import { Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import { LinearGradient } from 'expo';
 
 const CoinDetail = ({ coinProp }) => {
 	//Destructure references for nicer code
@@ -20,7 +21,13 @@ const CoinDetail = ({ coinProp }) => {
 					<Text style={styles.textSymbolStyle}>{symbol}</Text>
 				</View>
 				<View style={headerContentRightStyle}>
-					<Button
+					{/* <LinearGradient
+						style={{
+							borderWidth: 0, borderRadius: 60, alignItems: 'center', justifyContent: 'center', width: 120,height: 50,}}
+						colors={['#FF5538', '#FF434C', '#FF2D68']}>
+						
+						</LinearGradient> */}
+					{/* <LinearGradient
 						title={"$" + price_usd}
 						buttonStyle={{
 							backgroundColor: "rgba(92, 99,216, 1)",
@@ -30,7 +37,10 @@ const CoinDetail = ({ coinProp }) => {
 							borderWidth: 0,
 							borderRadius: 60
 						}}
-					/>
+					/> */}
+
+					<Text style={{
+						color: '#434343', fontSize: 20, fontWeight: 'bold',marginBottom: 10, }}>{"$" + price_usd}</Text>
 					<Text style={[styles.textPercentStyle, percent_change_24h < 0 ? styles.redText : styles.greenText]}>{percent_change_24h + "%  "}</Text>
 				</View>
 			</CardSection>
@@ -57,7 +67,7 @@ const styles = {
 		fontWeight: 'bold',
 		marginBottom: 10,
 		fontSize: 20,
-		color: 'white'
+		color: '#434343'
 	},
 	textPercentStyle: {
 		justifyContent: 'flex-end',

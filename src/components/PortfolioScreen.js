@@ -89,10 +89,7 @@ class PortfolioScreen extends Component {
             )
         } else {
             return (
-                <LinearGradient
-                    colors={['#452768', '#171032', '#04081B']}
-                    style={{ flex: 1 }}
-                >
+                <View style={{backgroundColor: 'white', flex:1}}>
                     <ScrollView
                         refreshControl={
                             <RefreshControl
@@ -101,23 +98,11 @@ class PortfolioScreen extends Component {
                             />
                         }
                     >
-                        <CardSection>
-                            <View style={styles.totalContainerStyle}>
-                                <Text style={styles.totalTextStyle}>
-                                    {"Portfolio Value"}
-                                </Text>
-                                <Button
-                                    title={"$" + portfolioTotal}
-                                    textStyle={{ fontSize: 24 }}
-                                    buttonStyle={{
-                                        backgroundColor: "rgba(92, 99,216, 1)",
-                                        borderWidth: 0,
-                                        borderRadius: 60,
-                                        paddingHorizontal: 25
-                                    }}
-                                />
-                            </View>
-                        </CardSection>
+                        <LinearGradient style={styles.totalContainerStyle}
+                            colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                            <Text style={styles.totalTextStyle}>Portfolio Value</Text>
+                            <Text style={styles.textValueStyle}>{"$" + portfolioTotal}</Text>
+                        </LinearGradient>
                         {_.isEmpty(this.state.portfolio) ?
                             <View style={styles.addCoinButton}>
                                 <Button
@@ -142,7 +127,7 @@ class PortfolioScreen extends Component {
                             null :
                             this.renderPortfolio()}
                     </ScrollView>
-                </LinearGradient>
+                </View>
             );
         }
     }
@@ -153,20 +138,36 @@ const styles = {
         flex: 1
     },
     totalContainerStyle: {
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // flex: 1,
+        // marginLeft: 15
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
-        marginLeft: 15
+        padding: 30,
+        margin: 10,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
     },
     totalTextStyle: {
         justifyContent: 'center',
         color: 'white',
-        fontWeight: 'bold',
-        fontSize: 24
+        fontWeight: '300',
+        fontSize: 15,
+        marginBottom: 20,
     },
     addCoinButton: {
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    textValueStyle: {
+        justifyContent: 'center',
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 24,
     }
 }
 

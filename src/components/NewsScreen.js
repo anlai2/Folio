@@ -39,7 +39,7 @@ class NewsScreen extends Component {
             return (
                 <View style={{
                     flex: 1,
-                    backgroundColor: "#2A033E"
+                    backgroundColor: "white"
                 }}>
                     <View style={{ flex: 1, height: 250 }}>
                         <Spinner />
@@ -50,10 +50,9 @@ class NewsScreen extends Component {
             return (
                 <View style={{
                     flex: 1,
-                    backgroundColor: "#2A033E"
+                    backgroundColor: "white"
                 }}>
-                    <LinearGradient
-                        colors={['#452768', '#171032', '#04081B']}>
+                    <View style={{backgroundColor: 'white'}}>
                         <ScrollView
                         refreshControl={
                             <RefreshControl
@@ -64,7 +63,7 @@ class NewsScreen extends Component {
                         >
                             {this.renderNews()}
                         </ScrollView>
-                    </LinearGradient>
+                    </View>
                 </View >
             );
         }
