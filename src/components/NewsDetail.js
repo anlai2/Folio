@@ -3,7 +3,7 @@ import { Text, View, Image, Linking } from 'react-native';
 import { CardSection } from './common';
 import { Card, Button } from 'react-native-elements';
 const NewsDetail = ({ headline }) => {
-    const { title, description, urlToImage, url } = headline;
+    const { title, author, description, urlToImage, url } = headline;
     const {
         thumbnailStyle,
         headerContentStyle,
@@ -20,7 +20,12 @@ const NewsDetail = ({ headline }) => {
             <CardSection>
                 <View style={headerContentStyle}>
                     <Text style={headerTextStyle}>{title}</Text>
-                    <Text style={descriptionTextStyle}>{description}</Text>
+                    <View style={{ paddingTop: 5 }}>
+                        <Text style={{ fontSize: 12, color: 'white' }}>{"Written By: " + author}</Text>
+                    </View>
+                    <View style={{ paddingTop: 10 }}>
+                        <Text style={descriptionTextStyle}>{description}</Text>
+                    </View>
                 </View>
             </CardSection>
 
@@ -31,18 +36,18 @@ const NewsDetail = ({ headline }) => {
                 />
             </CardSection>
 
-            <CardSection>
-                <Button 
-                onPress={() => Linking.openURL(url)}
-                title="Read More"
-                buttonStyle={{
-                    backgroundColor: "rgba(92, 99,216, 1)",
-                    borderWidth: 0,
-                    borderRadius: 60,
-                    paddingHorizontal: 25
-                }}
+            <View>
+                <Button
+                    onPress={() => Linking.openURL(url)}
+                    title="Read More"
+                    buttonStyle={{
+                        backgroundColor: "rgba(92, 99,216, 1)",
+                        borderWidth: 0,
+                        borderRadius: 60,
+                        paddingHorizontal: 25
+                    }}
                 />
-            </CardSection>
+            </View>
         </Card>
     );
 };

@@ -12,7 +12,7 @@ class NewsScreen extends Component {
         this.fetchNews();
     }
 
-    fetchNews() {
+    fetchNews = () => {
         const apiKey = '7bc09cc2fa8b4f6d8190d17dca63b344';
         this.setState({ loading: true });
         axios.get(`https://newsapi.org/v2/everything?sources=crypto-coins-news&apiKey=${apiKey}`)
