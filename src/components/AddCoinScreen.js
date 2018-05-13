@@ -22,7 +22,6 @@ class AddCoinScreen extends Component {
 
     onButtonPress() {
         const { checked } = this.props;
-        console.log(checked);
         this.props.coinsSaved()
         Actions.addAsset();
     }
@@ -60,21 +59,6 @@ class AddCoinScreen extends Component {
                     <View style={{ backgroundColor: 'white' }}>
                         <ScrollView>
                             <View style={styles.buttonContainer}>
-                                {/* <Button
-                                onPress={() => this.onButtonPress()}
-                                title="Add Coins "
-                                titleStyle={{ fontWeight: 'bold' }}
-                                buttonStyle={{
-                                    backgroundColor: "rgba(92, 99,216, 1)",
-                                    width: 300,
-                                    height: 45,
-                                    borderColor: "transparent",
-                                    borderWidth: 0,
-                                    borderRadius: 5,
-                                    paddingLeft: 10
-                                }}
-                                containerStyle={{ marginTop: 20 }}
-                            /> */}
                                 <TouchableOpacity
                                     onPress={() => this.onButtonPress()}
                                 >

@@ -27,13 +27,11 @@ class CoinList extends Component {
     fetch('https://api.coinmarketcap.com/v1/global/')
       .then((response) => response.json())
       .then((responseData) => this.setState({ global: responseData }));
-    console.log(this.state.global);
 
     fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
       .then((response) => response.json())
       .then((responseData) => this.setState({ coins: responseData }))
       .then(() => this.setState({ loading: false }))
-    console.log(this.state.coins);
   }
 
   refreshCoins() {
