@@ -65,7 +65,6 @@ class PortfolioScreen extends Component {
         for (let coinType in this.state.portfolio) {
             coinValue = this.state.coins.filter((item) => item.symbol === coinType)[0];
             portfolioTotal += this.state.portfolio[coinType] * coinValue.price_usd;
-            //console.log();
         }
         portfolioTotal = Math.round(portfolioTotal * 100) / 100;
         portfolioTotal = portfolioTotal.toString();

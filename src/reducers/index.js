@@ -3,6 +3,6 @@ import AuthReducer from './AuthReducer';
 import PortfolioReducer from './PortfolioReducer';
 
 export default combineReducers({
-	auth: AuthReducer,
-	portfolio: PortfolioReducer
+  auth: AuthReducer,
+  portfolio: PortfolioReducer,
 });
