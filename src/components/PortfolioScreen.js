@@ -78,18 +78,13 @@ class PortfolioScreen extends Component {
         })
         if (this.state.loading) {
             return (
-                <LinearGradient
-                    colors={['#452768', '#171032', '#04081B']}
-                    style={{ flex: 1 }}
-                >
-                    <View style={{ flex: 1, height: 250 }}>
-                        <Spinner />
-                    </View>
-                </LinearGradient>
+                <View style={{ flex: 1, height: 250 }}>
+                    <Spinner />
+                </View>
             )
         } else {
             return (
-                <View style={{backgroundColor: 'white', flex:1}}>
+                <View style={{ backgroundColor: 'white', flex: 1 }}>
                     <ScrollView
                         refreshControl={
                             <RefreshControl
