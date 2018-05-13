@@ -33,14 +33,14 @@ const RouterComponent = () => {
 						component={LoginForm}
 						// title="MoonShot"
 						// titleStyle={{ color: "white" }} 
-						navigationBarStyle={{ backgroundColor: 'white' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="phoneAuth"
 						component={PhoneAuthScreen}
-						navigationBarStyle={{ backgroundColor: 'white' }}
+						navigationBarStyle={{ backgroundColor: '#FF5636' }}
 						backButtonImage={require('../assets/back.png')}
 						backButtonTextStyle={{ color: '#FFF' }} />
 				</Scene>
@@ -71,6 +71,8 @@ const RouterComponent = () => {
 						key="newsScreen"
 						component={NewsScreen}
 						onBack={() => Actions.pop()}
+						backButtonImage={require('../assets/back.png')}
+						backButtonTextStyle={{ color: '#FFF' }}
 						title="News"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#FF5636' }}
@@ -85,6 +87,8 @@ const RouterComponent = () => {
 						rightTitle="Add Coin"
 						onRight={() => Actions.addCoin()}
 						rightButtonTextStyle={{ color: '#FFF' }}
+						backButtonImage={require('../assets/back.png')}
+						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="addCoin"
@@ -92,6 +96,8 @@ const RouterComponent = () => {
 						title="Add Coin"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#FF5636' }}
+						backButtonImage={require('../assets/back.png')}
+						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="addAsset"
@@ -99,6 +105,8 @@ const RouterComponent = () => {
 						title="Add Assets"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#FF5636' }}
+						backButtonImage={require('../assets/back.png')}
+						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 				</Scene>
 			</Stack>
