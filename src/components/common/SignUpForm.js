@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Input, Spinner } from '../common';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
+import { LinearGradient } from 'expo';
 import axios from 'axios';
 import firebase from 'firebase';
 
@@ -49,22 +50,16 @@ class SignInForm extends Component {
         }
 
         return (
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Button
-                    onPress={() => this.handleSubmit()}
-                    title="SIGN UP "
-                    titleStyle={{ fontWeight: 'bold' }}
-                    buttonStyle={{
-                        backgroundColor: "rgba(92, 99,216, 1)",
-                        width: 300,
-                        height: 45,
-                        borderColor: "transparent",
-                        borderWidth: 0,
-                        borderRadius: 5
-                    }}
-                    containerStyle={{ marginTop: 20 }}
-                />
-            </View>
+            <TouchableOpacity
+                style={{ alignItems: 'center', justifyContent: 'center' }}
+                onPress={() => this.handleSubmit()}
+            >
+                <LinearGradient
+                    style={styles.loginButtonContainer}
+                    colors={['#FF5637', '#FF444A', '#FF2D68']}>
+                    <Text style={styles.loginButtonText}>SIGN UP</Text>
+                </LinearGradient>
+            </TouchableOpacity>
         );
     }
 
@@ -74,7 +69,7 @@ class SignInForm extends Component {
             <View style={styles.inputsContatiner}>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Text
-                        style={{ color: '#FFF', fontSize: 16, fontWeight: 'bold' }}
+                        style={{ color: '#000', fontSize: 16, fontWeight: 'bold' }}
                     >
                         Sign Up with Phone Number
                     </Text>
@@ -96,7 +91,7 @@ class SignInForm extends Component {
 
 const styles = {
     statusContainer: {
-        backgroundColor: '#2A033E',
+        backgroundColor: '#FFF',
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -108,21 +103,39 @@ const styles = {
     },
     backgroundContainer: {
         flex: 1,
-        backgroundColor: '#2A033E'
+        backgroundColor: '#FFF'
     },
     inputsContatiner: {
-        paddingTop: 10
+        paddingTop: 10,
+        backgroundColor: '#FFF'
     },
     buttonStyle: {
         alignItems: 'center'
     },
     cardContainer: {
         padding: 10,
-        backgroundColor: '#2A033E',
+        backgroundColor: '#FFF',
         justifyContent: 'flex-start',
         flexDirection: 'row',
         borderRadius: 20,
         position: 'relative'
+    },
+    loginButtonContainer: {
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        width: 300,
+        height: 45,
+        padding: 15,
+        borderRadius: 20,
+        shadowOffset: { width: 3, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+    },
+    loginButtonText: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'white',
     }
 };
 //             <View>
