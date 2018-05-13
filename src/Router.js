@@ -66,6 +66,8 @@ const RouterComponent = () => {
 						title="Coin Detail"
 						titleStyle={{ color: "white", alignItems: "center", justifyContent: 'center' }}
 						navigationBarStyle={{ backgroundColor: '#FF5636' }}
+						backButtonImage={require('../assets/back.png')}
+						backButtonTextStyle={{ color: '#FFF' }}
 					/>
 					<Scene
 						key="newsScreen"

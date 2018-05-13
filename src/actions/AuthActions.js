@@ -74,8 +74,8 @@ export const logoutUserSuccess = (dispatch, user) => {
 		dispatch({ type: LOGOUT_USER_SUCCESS });
 
 		firebase.auth().signOut();
+		Actions.intro();
 	};
-	Actions.intro();
 };
 
 
