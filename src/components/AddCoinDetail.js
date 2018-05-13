@@ -24,6 +24,7 @@ const AddCoinDetail = ({ coinProp, check, onChecked }) => {
                     checked={check}
                     // action to add to reducer for firebase pushing
                     onPress={onChecked}
+                    containerStyle={{ borderColor: 'white', backgroundColor: 'white' }}
                 />
             </View>
         </CardSection>
