@@ -15,14 +15,7 @@ class CoinDetailScreen extends Component {
 
     componentWillMount() {
       const data = {
-        authorization: 'OAuth',
-        oauth_consumer_key: 'JuFTuDh0b7iF0DD6GIiqFzOYS',
-        oauth_nonce: 'generated-nonce',
-        oauth_signature: 'generated-signature',
-        oauth_signature_method: 'HMAC-SHA1',
-        oauth_timestamp: 'generated-timestamp',
-        oauth_token: '1041677522-1JYMBSbLG8C0vOyFsfkbr0JDrqAmnogso1bZyNc',
-        oauth_version: '1.0',
+        authorization: 'OAuth oauth_consumer_key="JuFTuDh0b7iF0DD6GIiqFzOYS", oauth_nonce="generated-nonce", oauth_signature="generated-signature", oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", oauth_token="0YOXFtM2gQv9cIcEMcSBhhyNBjWwRR0ot9s4MlbET1HrP", oauth_version="1.0"',
       };
 
       fetch(`https://api.coinmarketcap.com/v1/ticker/${this.props.coinName}/`)
@@ -33,7 +26,10 @@ class CoinDetailScreen extends Component {
         method: 'GET',
         headers: JSON.stringify(data),
       })
-        .then(response => response.json())
+        .then((response) => {
+          response.json();
+          console.log(response);
+        })
         .then(responseData => console.log(responseData));
     }
 
@@ -101,7 +97,6 @@ const styles = {
   contentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    // justifyContent:'center',
     flex: 1,
   },
   symbolContainer: {

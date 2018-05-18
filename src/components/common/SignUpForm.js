@@ -101,7 +101,7 @@ const styles = {
   statusTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
-    color: '#FFF',
+    color: '#FF444A',
     fontWeight: 'bold',
   },
   backgroundContainer: {

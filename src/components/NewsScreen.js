@@ -16,7 +16,8 @@ class NewsScreen extends Component {
       this.setState({ loading: true });
       axios.get(`https://newsapi.org/v2/everything?sources=crypto-coins-news&apiKey=${apiKey}`)
         .then(response => this.setState({ headlines: response.data.articles }))
-        .then(() => this.setState({ loading: false }));
+        .then(() => this.setState({ loading: false }))
+        .done();
     }
 
     refreshNews() {
