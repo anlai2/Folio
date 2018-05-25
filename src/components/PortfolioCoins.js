@@ -33,10 +33,8 @@ const styles = {
     marginLeft: 15,
   },
   headerContentRightStyle: {
-    // marginTop: 18,
     justifyContent: 'center',
     alignItems: 'flex-end',
-    // justifyContent:'center',
     flex: 1,
   },
   headerTextStyle: {
@@ -45,22 +43,8 @@ const styles = {
     fontSize: 20,
     color: '#434343',
   },
-  textPercentStyle: {
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    color: '#434343',
-    fontSize: 15,
-    marginRight: 20,
-    fontWeight: '700',
-  },
   textSymbolStyle: {
     color: '#555974',
-  },
-  redText: {
-    color: 'red',
-  },
-  greenText: {
-    color: '#18A76D',
   },
 };
 export default PortfolioCoins;

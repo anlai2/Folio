@@ -47,7 +47,7 @@ class CreateForm extends Component {
           style={styles.loginButtonContainer}
           colors={['#FF5637', '#FF444A', '#FF2D68']}
         >
-          <Text style={styles.loginButtonText}>LOGIN</Text>
+          <Text style={styles.loginButtonText}>CREATE ACCOUNT</Text>
         </LinearGradient>
       </TouchableOpacity>
     );
@@ -56,7 +56,7 @@ class CreateForm extends Component {
   render() {
     return (
       <View style={styles.backgroundContainer}>
-        <View style={styles.inputsContatiner}>
+        <View style={styles.inputsContainer}>
           <View style={styles.cardContainer}>
             <Input
               label="Email"
@@ -100,7 +100,7 @@ const styles = {
     flex: 1,
     backgroundColor: 'white',
   },
-  inputsContatiner: {
+  inputsContainer: {
     paddingTop: 10,
   },
   buttonStyle: {

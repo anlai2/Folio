@@ -56,10 +56,8 @@ const styles = {
     marginLeft: 15,
   },
   headerContentRightStyle: {
-    // marginTop: 18,
     justifyContent: 'center',
     alignItems: 'flex-end',
-    // justifyContent:'center',
     flex: 1,
   },
   headerTextStyle: {

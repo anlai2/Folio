@@ -23,6 +23,9 @@
     "consistent-return": 1,
     "camelcase": 0,
     "no-console": 0,
-    "no-undef": 0
+    "no-undef": 0,
+    "no-restricted-syntax": 0,
+    "guard-for-in": 0,
+    "prefer-destructuring": 0
     }
 }

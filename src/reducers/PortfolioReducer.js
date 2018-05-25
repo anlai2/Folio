@@ -18,7 +18,6 @@ export default (state = INITIAL_STATE, action) => {
       return {
         checked: [...state.checked, action.payload],
       };
-      // this.state.coins.push(action.payload)
     case COIN_UNCHECKED:
       return {
         checked: [
@@ -27,7 +26,6 @@ export default (state = INITIAL_STATE, action) => {
         ],
       };
     case COINS_SAVED:
-      // Map array of checked coins to an obj of coins as keys with 0 value
       return {
         ...state,
         coins: Object.assign(...state.checked.map(x => ({ [x]: 0 }))),

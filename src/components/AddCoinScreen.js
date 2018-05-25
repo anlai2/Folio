@@ -41,6 +41,23 @@ class AddCoinScreen extends Component {
       // coinProp variable can be named anything as long as we use that name in other functions
     }
 
+    renderButton() {
+      return (
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            onPress={() => this.onButtonPress()}
+          >
+            <LinearGradient
+              style={styles.addButtonContainer}
+              colors={['#FF5637', '#FF444A', '#FF2D68']}
+            >
+
+              <Text style={styles.addButtonText}>Add Coins</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>);
+    }
+
     render() {
       if (this.state.loading) {
         return (
@@ -56,19 +73,7 @@ class AddCoinScreen extends Component {
         <View style={styles.viewContainer}>
           <View style={{ backgroundColor: 'white' }}>
             <ScrollView>
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                  onPress={() => this.onButtonPress()}
-                >
-                  <LinearGradient
-                    style={styles.addButtonContainer}
-                    colors={['#FF5637', '#FF444A', '#FF2D68']}
-                  >
-
-                    <Text style={styles.addButtonText}>Add Coins</Text>
-                  </LinearGradient>
-                </TouchableOpacity>
-              </View>
+              {this.renderButton()}
               {this.renderCoins()}
             </ScrollView>
           </View>
@@ -104,18 +109,6 @@ const styles = {
     fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
-  },
-  cardContainer: {
-    backgroundColor: 'rgba(92, 99,216, 1)',
-    borderColor: '#000',
-  },
-  headerContainer: {
-    backgroundColor: '#23213F',
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50,
-    borderRadius: 50,
   },
 };
 

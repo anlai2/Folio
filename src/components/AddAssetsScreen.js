@@ -86,22 +86,6 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  cardContainer: {
-    backgroundColor: 'rgba(92, 99,216, 1)',
-  },
-  headerContainer: {
-    backgroundColor: '#23213F',
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50,
-    borderRadius: 50,
-  },
-  addButtonText: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: 'white',
-  },
   addAssetContainer: {
     justifyContent: 'center',
     backgroundColor: 'transparent',
