@@ -50,7 +50,6 @@ class CoinList extends Component {
     this.props.logoutUserSuccess();
   }
 
-
   renderGlobal() {
     return (
       <GlobalDetail coinProp={this.state.global} />);
