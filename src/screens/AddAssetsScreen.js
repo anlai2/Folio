@@ -98,6 +98,11 @@ const styles = {
     shadowColor: 'black',
     shadowOpacity: 0.2,
   },
+  addButtonText: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'white',
+  },
 };
 
 const mapStateToProps = ({ portfolio }) => {
