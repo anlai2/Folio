@@ -5,9 +5,9 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
-import { Spinner } from './common';
+import { Spinner } from '../components/common';
 import { fetchPortfolio } from '../actions';
-import PortfolioCoins from './PortfolioCoins';
+import PortfolioCoins from '../components/PortfolioCoins';
 
 class PortfolioScreen extends Component {
   state = {
@@ -67,9 +67,6 @@ class PortfolioScreen extends Component {
     }
     portfolioTotal = Math.round(portfolioTotal * 100) / 100;
     portfolioTotal = portfolioTotal.toString();
-    // Object.values(this.state.portfolio).forEach((value) => {
-    //     portfolioTotal += value *
-    // })
     this.state.portfolio === {}
       ? null
       : () => {

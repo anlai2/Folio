@@ -31,10 +31,12 @@ const styles = {
     padding: 30,
     margin: 10,
     borderRadius: 20,
-    shadowOffset: { width: 3, height: 3 },
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    },
     shadowColor: 'black',
     shadowOpacity: 0.2,
-
   },
   textStyle: {
     justifyContent: 'center',

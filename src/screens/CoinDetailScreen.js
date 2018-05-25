@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, Linking, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo';
-import { CardSection } from './common';
+import { CardSection } from '../components/common';
 
 class CoinDetailScreen extends Component {
     state = {
@@ -109,9 +109,6 @@ const styles = {
     shadowOffset: { width: 3, height: 3 },
     shadowColor: 'black',
     shadowOpacity: 0.2,
-  },
-  detailContainer: {
-    flex: 1,
   },
   symbolTextStyle: {
     color: 'white',

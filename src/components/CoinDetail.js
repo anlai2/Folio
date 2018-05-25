@@ -18,7 +18,6 @@ const CoinDetail = ({ coinProp }) => {
     <TouchableOpacity onPress={() => Actions.coinDetail({ coinName: id })}>
       <CardSection>
         <View style={headerContentLeftStyle}>
-          {/* <Text style={styles.textStyle}>{rank}</Text> */}
           <Text style={headerTextStyle}>{name} </Text>
           <Text style={styles.textSymbolStyle}>{symbol}</Text>
         </View>

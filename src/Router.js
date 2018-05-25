@@ -2,14 +2,14 @@ import React from 'react';
 import { Scene, Router, Actions, Stack } from 'react-native-router-flux';
 import CreateForm from './components/CreateForm';
 import LoginForm from './components/LoginForm';
-import IntroScreen from './components/IntroScreen';
+import IntroScreen from './screens/IntroScreen';
 import CoinList from './components/CoinList';
-import PortfolioScreen from './components/PortfolioScreen';
-import AddCoinScreen from './components/AddCoinScreen';
-import AddAssetsScreen from './components/AddAssetsScreen';
-import CoinDetailScreen from './components/CoinDetailScreen';
-import NewsScreen from './components/NewsScreen';
-import PhoneAuthScreen from './components/PhoneAuthScreen';
+import PortfolioScreen from './screens/PortfolioScreen';
+import AddCoinScreen from './screens/AddCoinScreen';
+import AddAssetsScreen from './screens/AddAssetsScreen';
+import CoinDetailScreen from './screens/CoinDetailScreen';
+import NewsScreen from './screens/NewsScreen';
+import PhoneAuthScreen from './screens/PhoneAuthScreen';
 
 const BACK_BUTTON = require('../assets/back.png');
 

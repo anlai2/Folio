@@ -3,9 +3,9 @@ import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { LinearGradient } from 'expo';
 import { connect } from 'react-redux';
-import { Spinner } from './common';
+import { Spinner } from '../components/common';
 import { coinChecked, coinUnchecked, assetSaved, assetChanged } from '../actions';
-import AddAssetsDetail from './AddAssetsDetail';
+import AddAssetsDetail from '../components/AddAssetsDetail';
 
 class AddAssetsScreen extends Component {
     state = { loading: false, coins: [] }

@@ -85,7 +85,6 @@ class CoinList extends Component {
               />
               }
           >
-            {/* <Header headerText="Dashboard" /> */}
             {this.renderGlobal()}
             {this.renderCoins()}
             <TouchableOpacity
