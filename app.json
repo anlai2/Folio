@@ -11,12 +11,16 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/folio.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "com.andy-lai.folioapp"
+    },
+    "android": {
+      "package": "com.andy-lai.folioapp"
     }
   }
 }
