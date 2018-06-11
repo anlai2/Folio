@@ -15,7 +15,7 @@
 - They can also view current news events in cryptocurrency either through recent tweets or with the Crypto Coin News API
 - Folio also allows users to track a portfolio that they might not exactly own. For example, if someone wanted to know how much USD they would hold if they invested x amount today.
 
-### Demo and some screenshots
+### Screenshots
 
 Coming Soon!
 
