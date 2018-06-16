@@ -6,8 +6,9 @@
 <p align="center">
   Track your cryptocurrency portfolio value cross exchanges
 </p>
-
-<img src="assets/folio.png" width="270" />
+<div align="center>
+  <img src="assets/folio.png" width="270" />
+</div>
 
 ### [Demo - Try it on Expo](https://expo.io/@anlai2/Folio)
 
@@ -48,7 +49,7 @@ Many issues that will occur will be opened on this github page, below are milest
   * [Crypto Coins News API](https://newsapi.org/s/crypto-coins-news-api) for latest cryptocurrency news
 
 - [ ] Start building prototype
-  - [ ] Fix android UI design bugs
+  - [X] Fix android UI design bugs
   - [ ] Get feedback
   - [ ] Prepare deployment to stores (Due by 08/27/18)
 
