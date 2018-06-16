@@ -14,7 +14,7 @@
 </p>
 
 <a href='https://play.google.com/store/apps/details?id=com.andylai.folio'>
-  <img alt='Get it on Google Play' src='project-plan-files/google-play-store-icon.png'/>
+  <img alt='Get it on Google Play' src='assets/google-play-store.png'/>
 </a>
 
 ### [Demo - Try it on Expo](https://expo.io/@anlai2/Folio)
