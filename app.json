@@ -3,7 +3,7 @@
     "name": "Folio",
     "description":
       "Crypto currency application to help users track their assets when they are stored cross-exchange or on a physical wallet.",
-    "slug": "https://expo.io/@anlai2/CoinTracker",
+    "slug": "CoinTracker",
     "privacy": "public",
     "githubUrl": "https://github.com/anlai2/CoinTracker",
     "sdkVersion": "25.0.0",
@@ -21,7 +21,7 @@
       "bundleIdentifier": "com.andy-lai.folio"
     },
     "android": {
-      "package": "com.andy-lai.folio"
+      "package": "com.andylai.folio"
     }
   }
 }

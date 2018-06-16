@@ -27,7 +27,7 @@ class PortfolioScreen extends Component {
 
   fetchPortfolio = () => {
     this.setState({ loading: true });
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=100')
       .then(response => response.json())
       .then(responseData => this.setState({ coins: responseData }))
       .then(() => this.getPortfolio())
@@ -36,7 +36,7 @@ class PortfolioScreen extends Component {
 
   refreshPortfolio = () => {
     this.setState({ refreshing: true });
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=100')
       .then(response => response.json())
       .then(responseData => this.setState({ coins: responseData }))
       .then(() => this.getPortfolio())

@@ -12,12 +12,6 @@ export default class IntroScreen extends Component {
           <Image source={LOGO} style={styles.logo} />
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={Actions.phoneAuth}>
-            <Text style={styles.button}> Login with Phone Number </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ height: 1 }} />
-        <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={Actions.loginUser}>
             <Text style={styles.button}> Login </Text>
           </TouchableOpacity>

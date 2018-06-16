@@ -28,7 +28,7 @@ class CoinList extends Component {
       .then(response => response.json())
       .then(responseData => this.setState({ global: responseData }));
 
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=100')
       .then(response => response.json())
       .then(responseData => this.setState({ coins: responseData }))
       .then(() => this.setState({ loading: false }));
@@ -40,7 +40,7 @@ class CoinList extends Component {
       .then(response => response.json())
       .then(responseData => this.setState({ global: responseData }));
 
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=100')
       .then(response => response.json())
       .then(responseData => this.setState({ coins: responseData }))
       .then(() => this.setState({ refreshing: false }));
