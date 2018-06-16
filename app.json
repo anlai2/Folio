@@ -10,7 +10,7 @@
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/folio.png",
+    "icon": "./assets/folioIcon.png",
     "splash": {
       "image": "./assets/folio.png",
       "resizeMode": "contain",
