@@ -1,9 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Text, View, ScrollView, RefreshControl } from 'react-native';
+import { Text, View, ScrollView, RefreshControl, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
 import { Spinner } from '../components/common';
 import { fetchPortfolio } from '../actions';
@@ -99,22 +98,16 @@ class PortfolioScreen extends Component {
           </LinearGradient>
           {_.isEmpty(this.state.portfolio) ? (
             <View style={styles.addCoinButton}>
-              <Button
+              <TouchableOpacity
                 onPress={() => Actions.addCoin()}
-                title="Add a Coin "
-                titleStyle={{ fontWeight: 'bold' }}
-                buttonStyle={{
-                  backgroundColor: 'rgba(92, 99,216, 1)',
-                  width: 300,
-                  height: 45,
-                  borderColor: 'transparent',
-                  borderWidth: 0,
-                  borderRadius: 5,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                containerStyle={{ marginTop: 20 }}
-              />
+              >
+                <LinearGradient
+                  style={styles.addAssetContainer}
+                  colors={['#FF5637', '#FF444A', '#FF2D68']}
+                >
+                  <Text style={styles.addButtonText}>Add a Coin</Text>
+                </LinearGradient>
+              </TouchableOpacity>
             </View>
           ) : null}
           {_.isEmpty(this.state.portfolio) ? null : this.renderPortfolio()}
@@ -144,6 +137,8 @@ const styles = {
     marginBottom: 20,
   },
   addCoinButton: {
+    paddingTop: 10,
+    paddingBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },

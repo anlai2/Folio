@@ -24,6 +24,7 @@ const AddAssetsDetail = ({ coinProp, onChangeText }) => {
           style={styles.inputStyle}
           keyboardType="numeric"
           onChangeText={onChangeText}
+          underlineColorAndroid="transparent"
         />
       </View>
     </CardSection>
