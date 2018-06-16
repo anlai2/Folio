@@ -101,13 +101,13 @@ class PortfolioScreen extends Component {
               <View style={styles.cardContainer}>
                 <TouchableOpacity
                   style={{ alignItems: 'center', justifyContent: 'center' }}
-                  onPress={() => Actions.addCoin}
+                  onPress={() => Actions.addCoin()}
                 >
                   <LinearGradient
                     style={styles.colorButtonContainer}
                     colors={['#FF5637', '#FF444A', '#FF2D68']}
                   >
-                    <Text style={styles.textButtonStyle}>ADD A COIN</Text>
+                    <Text style={styles.textButtonStyle}>Add a Coin</Text>
                   </LinearGradient>
                 </TouchableOpacity>
               </View>
