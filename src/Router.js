@@ -9,7 +9,6 @@ import AddCoinScreen from './screens/AddCoinScreen';
 import AddAssetsScreen from './screens/AddAssetsScreen';
 import CoinDetailScreen from './screens/CoinDetailScreen';
 import NewsScreen from './screens/NewsScreen';
-import PhoneAuthScreen from './screens/PhoneAuthScreen';
 
 const BACK_BUTTON = require('../assets/back.png');
 
@@ -17,11 +16,7 @@ const RouterComponent = () => (
   <Router>
     <Stack key="root" hideNavBar>
       <Scene key="auth">
-        <Scene
-          key="intro"
-          hideNavBar
-          component={IntroScreen}
-        />
+        <Scene key="intro" hideNavBar component={IntroScreen} />
         <Scene
           key="createUser"
           component={CreateForm}
@@ -32,14 +27,7 @@ const RouterComponent = () => (
         <Scene
           key="loginUser"
           component={LoginForm}
-          navigationBarStyle={{ backgroundColor: '#FF5636' }}
-          backButtonImage={BACK_BUTTON}
-          backButtonTextStyle={{ color: '#FFF' }}
-        />
-        <Scene
-          key="phoneAuth"
-          component={PhoneAuthScreen}
-          navigationBarStyle={{ backgroundColor: '#FF5636' }}
+          navigationBarStyle={{ backgroundColor: 'white' }}
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}
         />
@@ -50,7 +38,11 @@ const RouterComponent = () => (
           key="coinList"
           component={CoinList}
           title="Dashboard"
-          titleStyle={{ color: 'white', alignItems: 'center', justifyContent: 'center' }}
+          titleStyle={{
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           leftTitle="News"
           onLeft={() => Actions.newsScreen()}
@@ -63,7 +55,11 @@ const RouterComponent = () => (
           key="coinDetail"
           component={CoinDetailScreen}
           title="Coin Detail"
-          titleStyle={{ color: 'white', alignItems: 'center', justifyContent: 'center' }}
+          titleStyle={{
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}
@@ -75,7 +71,11 @@ const RouterComponent = () => (
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}
           title="News"
-          titleStyle={{ color: 'white', alignItems: 'center', justifyContent: 'center' }}
+          titleStyle={{
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
         />
         <Scene
@@ -83,7 +83,11 @@ const RouterComponent = () => (
           component={PortfolioScreen}
           onBack={() => Actions.pop()}
           title="Portfolio"
-          titleStyle={{ color: 'white', alignItems: 'center', justifyContent: 'center' }}
+          titleStyle={{
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           rightTitle="Add Coin"
           onRight={() => Actions.addCoin()}
@@ -95,7 +99,11 @@ const RouterComponent = () => (
           key="addCoin"
           component={AddCoinScreen}
           title="Add Coin"
-          titleStyle={{ color: 'white', alignItems: 'center', justifyContent: 'center' }}
+          titleStyle={{
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}
@@ -104,7 +112,11 @@ const RouterComponent = () => (
           key="addAsset"
           component={AddAssetsScreen}
           title="Add Assets"
-          titleStyle={{ color: 'white', alignItems: 'center', justifyContent: 'center' }}
+          titleStyle={{
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}

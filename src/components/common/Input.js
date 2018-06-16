@@ -15,6 +15,7 @@ const Input = ({
         style={inputStyle}
         value={value}
         onChangeText={onChangeText}
+        underlineColorAndroid="transparent"
       />
     </View>
   );

@@ -8,29 +8,10 @@ class CoinDetailScreen extends Component {
       coinDetail: [],
     }
 
-    //     'authorization: OAuth oauth_consumer_key="consumer-key-for-app",
-    //  oauth_nonce="generated-nonce", oauth_signature="generated-signature",
-    //  oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp",
-    //  oauth_token="access-token-for-authed-user", oauth_version="1.0"'
-
     componentWillMount() {
-      const data = {
-        authorization: 'OAuth oauth_consumer_key="JuFTuDh0b7iF0DD6GIiqFzOYS", oauth_nonce="generated-nonce", oauth_signature="generated-signature", oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", oauth_token="0YOXFtM2gQv9cIcEMcSBhhyNBjWwRR0ot9s4MlbET1HrP", oauth_version="1.0"',
-      };
-
       fetch(`https://api.coinmarketcap.com/v1/ticker/${this.props.coinName}/`)
         .then(response => response.json())
         .then(responseData => this.setState({ coinDetail: responseData }));
-
-      fetch(`https://api.twitter.com/1.1/search/tweets.json?q=${this.props.coinName}&result_type=popular`, {
-        method: 'GET',
-        headers: JSON.stringify(data),
-      })
-        .then((response) => {
-          response.json();
-          console.log(response);
-        })
-        .then(responseData => console.log(responseData));
     }
 
 
