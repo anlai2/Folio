@@ -7,6 +7,8 @@
   Track your cryptocurrency portfolio value cross exchanges
 </p>
 
+<img src="assets/folio.png" width="270" />
+
 ### [Demo - Try it on Expo](https://expo.io/@anlai2/Folio)
 
 ## Features
