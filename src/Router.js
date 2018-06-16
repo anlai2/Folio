@@ -46,9 +46,11 @@ const RouterComponent = () => (
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           leftTitle="News"
           onLeft={() => Actions.newsScreen()}
+          leftButtonStyle={{ left: 0 }}
           leftButtonTextStyle={{ color: '#FFF' }}
           rightTitle="Portfolio"
           onRight={() => Actions.portfolioScreen()}
+          rightButtonStyle={{ right: 0 }}
           rightButtonTextStyle={{ color: '#FFF' }}
         />
         <Scene
@@ -91,6 +93,7 @@ const RouterComponent = () => (
           navigationBarStyle={{ backgroundColor: '#FF5636' }}
           rightTitle="Add Coin"
           onRight={() => Actions.addCoin()}
+          rightButtonStyle={{ right: 0 }}
           rightButtonTextStyle={{ color: '#FFF' }}
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}
