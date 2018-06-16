@@ -13,7 +13,7 @@ class AddAssetsScreen extends Component {
     componentWillMount() {
       // ASYNC HTTP Request to get coins from the API.
       this.setState({ loading: true });
-      fetch('https://api.coinmarketcap.com/v1/ticker/?limit=200')
+      fetch('https://api.coinmarketcap.com/v1/ticker/?limit=100')
         .then(response => response.json())
         .then(responseData => this.setState({ coins: responseData }))
         .then(() => this.setState({ loading: false }));
