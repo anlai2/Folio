@@ -97,17 +97,20 @@ class PortfolioScreen extends Component {
             <Text style={styles.textValueStyle}>{`$${portfolioTotal}`}</Text>
           </LinearGradient>
           {_.isEmpty(this.state.portfolio) ? (
-            <View style={styles.addCoinButton}>
-              <TouchableOpacity
-                onPress={() => Actions.addCoin()}
-              >
-                <LinearGradient
-                  style={styles.addAssetContainer}
-                  colors={['#FF5637', '#FF444A', '#FF2D68']}
+            <View style={styles.buttonStyle}>
+              <View style={styles.cardContainer}>
+                <TouchableOpacity
+                  style={{ alignItems: 'center', justifyContent: 'center' }}
+                  onPress={() => Actions.addCoin}
                 >
-                  <Text style={styles.addButtonText}>Add a Coin</Text>
-                </LinearGradient>
-              </TouchableOpacity>
+                  <LinearGradient
+                    style={styles.colorButtonContainer}
+                    colors={['#FF5637', '#FF444A', '#FF2D68']}
+                  >
+                    <Text style={styles.textButtonStyle}>ADD A COIN</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+              </View>
             </View>
           ) : null}
           {_.isEmpty(this.state.portfolio) ? null : this.renderPortfolio()}
@@ -136,6 +139,29 @@ const styles = {
     fontSize: 15,
     marginBottom: 20,
   },
+  buttonStyle: {
+    alignItems: 'center',
+  },
+  cardContainer: {
+    padding: 10,
+    backgroundColor: 'white',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    borderRadius: 20,
+    position: 'relative',
+  },
+  colorButtonContainer: {
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    width: 300,
+    height: 45,
+    padding: 15,
+    borderRadius: 20,
+    shadowOffset: { width: 3, height: 3 },
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
+  },
   addCoinButton: {
     paddingTop: 10,
     paddingBottom: 10,
@@ -147,6 +173,11 @@ const styles = {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 24,
+  },
+  textButtonStyle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'white',
   },
 };
 
