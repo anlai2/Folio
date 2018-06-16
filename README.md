@@ -6,9 +6,8 @@
 <p align="center">
   Track your cryptocurrency portfolio value cross exchanges
 </p>
-<div align="center>
-  <img src="assets/folio.png" width="270" />
-</div>
+
+<img src="assets/folio.png" align="center" width="270" />
 
 ### [Demo - Try it on Expo](https://expo.io/@anlai2/Folio)
 
