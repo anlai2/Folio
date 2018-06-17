@@ -17,6 +17,10 @@
   <img alt='Get it on Google Play' src='assets/google-play-store.png'/>
 </a>
 
+<a href='https://itunes.apple.com/us/app/folio-track-cryptocurrency/id1399923421?ls=1&mt=8'>
+  <img alt='Get it on Apple Store' src='assets/apple-store-icon.png'/>
+</a>
+
 ### [Demo - Try it on Expo](https://expo.io/@anlai2/Folio)
 
 ## Features
@@ -52,12 +56,12 @@
 
 Many issues that will occur will be opened on this github page, below are milestones/enhancements
 
-- [ ] Start building prototype
+- [X] Start building prototype
   - [X] Fix Android UI design bugs
   - [X] Deploy to Play Store
-  - [ ] Fix Apple UI design bugs
-  - [ ] Deploy to Apple Store
-  - [ ] Deploy to stores (Due 8/27/18)
+  - [X] Fix Apple UI design bugs
+  - [X] Deploy to Apple Store
+  - [X] Deploy to stores (Due 8/27/18)
   
 - [ ] Enhancements and Issues
   - [ ] Switch from RNRF to React-Navigation
