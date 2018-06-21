@@ -20,6 +20,13 @@ class PortfolioScreen extends Component {
     this.fetchPortfolio();
   }
 
+  // If user has finished the adding coin/assets route, refresh the portfolio
+  componentWillReceiveProps(nextProps) {
+    if (nextProps) {
+      this.refreshPortfolio();
+    }
+  }
+
   getPortfolio() {
     this.setState({ portfolio: this.props.coins });
   }

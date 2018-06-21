@@ -23,7 +23,7 @@ class AddAssetsScreen extends Component {
       const { coins } = this.props;
       this.props.assetSaved({ coins });
       Actions.pop();
-      Actions.pop();
+      Actions.pop({ refresh: true });
     }
 
     // Render all the coins that was fetched from the API.
