@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { Keyboard } from 'react-native';
+import { Keyboard, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {
   EMAIL_CHANGED,
@@ -10,6 +10,9 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_START,
   LOGOUT_USER_SUCCESS,
+  FORGOT_PASSWORD_START,
+  FORGOT_PASSWORD_SUCCESS,
+  FORGOT_PASSWORD_FAIL,
 } from './types';
 
 export const emailChanged = text => ({
@@ -71,3 +74,26 @@ export const logoutUserSuccess = (dispatch) => {
   Actions.intro();
 };
 
+export const forgotPassword = email => (dispatch) => {
+  dispatch({ type: FORGOT_PASSWORD_START });
+
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(() => forgotUserSuccess(dispatch, email))
+    .catch(() => forgotUserFail(dispatch));
+};
+
+const forgotUserSuccess = email => (dispatch) => {
+  dispatch({
+    type: FORGOT_PASSWORD_SUCCESS,
+  });
+
+  Alert.alert('Reset Link Sent!', `Reset password link has been sent to ${email}`);
+  Actions.pop();
+};
+
+const forgotUserFail = email => (dispatch) => {
+  dispatch({
+    type: FORGOT_PASSWORD_FAIL,
+  });
+  Alert.alert('Email does not exist!', `${email} was not found in our database or is not a proper email`);
+};
