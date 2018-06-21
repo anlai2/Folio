@@ -19,19 +19,8 @@ class ForgotPassword extends Component {
     this.props.forgotPassword(email);
   }
 
-  renderError() {
-    if (this.props.error) {
-      return (
-        <View style={{ backgroundColor: 'white' }}>
-          <Text style={styles.errorTextStyle}>{this.props.error}</Text>
-        </View>
-      );
-    }
-    return null;
-  }
-
   renderButton() {
-    if (this.props.loadingLogin) {
+    if (this.props.loadingForgot) {
       return <Spinner size="large" />;
     }
 
@@ -64,9 +53,6 @@ class ForgotPassword extends Component {
           </View>
         </View>
         <View style={styles.buttonStyle}>
-          <View style={styles.cardContainer}>{this.renderError()}</View>
-        </View>
-        <View style={styles.buttonStyle}>
           <View style={styles.cardContainer}>{this.renderButton()}</View>
         </View>
       </View>
@@ -75,11 +61,6 @@ class ForgotPassword extends Component {
 }
 
 const styles = {
-  errorTextStyle: {
-    fontSize: 20,
-    alignSelf: 'center',
-    color: 'red',
-  },
   backgroundContainer: {
     flex: 1,
     backgroundColor: 'white',
@@ -123,13 +104,13 @@ const styles = {
 
 const mapStateToProps = ({ auth }) => {
   const {
-    email, error, loadingLogin,
+    email, error, loadingForgot,
   } = auth;
 
   return {
     email,
     error,
-    loadingLogin,
+    loadingForgot,
   };
 };
 export default connect(

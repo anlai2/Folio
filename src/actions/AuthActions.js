@@ -10,7 +10,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_START,
   LOGOUT_USER_SUCCESS,
-  FORGOT_PASSWORD_START,
+  FORGOT_PASSWORD,
   FORGOT_PASSWORD_SUCCESS,
   FORGOT_PASSWORD_FAIL,
 } from './types';
@@ -75,25 +75,17 @@ export const logoutUserSuccess = (dispatch) => {
 };
 
 export const forgotPassword = email => (dispatch) => {
-  dispatch({ type: FORGOT_PASSWORD_START });
+  dispatch({ type: FORGOT_PASSWORD });
 
   firebase.auth().sendPasswordResetEmail(email)
-    .then(() => forgotUserSuccess(dispatch, email))
-    .catch(() => forgotUserFail(dispatch));
-};
-
-const forgotUserSuccess = email => (dispatch) => {
-  dispatch({
-    type: FORGOT_PASSWORD_SUCCESS,
-  });
-
-  Alert.alert('Reset Link Sent!', `Reset password link has been sent to ${email}`);
-  Actions.pop();
-};
-
-const forgotUserFail = email => (dispatch) => {
-  dispatch({
-    type: FORGOT_PASSWORD_FAIL,
-  });
-  Alert.alert('Email does not exist!', `${email} was not found in our database or is not a proper email`);
+    .then(() => {
+      Actions.pop();
+      Alert.alert('Reset Link Sent!', `Reset password link has been sent to ${email}`);
+      dispatch({ type: FORGOT_PASSWORD_SUCCESS });
+    })
+    .catch((err) => {
+      console.log(err);
+      Alert.alert('Email does not exist!', `${email} was not found in our database or is not a proper email`);
+      dispatch({ type: FORGOT_PASSWORD_FAIL });
+    });
 };

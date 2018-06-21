@@ -7,7 +7,6 @@ import {
   emailChanged,
   passwordChanged,
   loginUser,
-  forgotPassword,
 } from '../actions';
 import { Input, Spinner } from './common';
 
@@ -182,6 +181,5 @@ export default connect(
     emailChanged,
     passwordChanged,
     loginUser,
-    forgotPassword,
   },
 )(LoginForm);

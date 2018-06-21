@@ -6,7 +6,7 @@ export const LOGIN_USER_SUCCESS = 'login_user_success';
 export const LOGIN_USER_FAIL = 'login_user_fail';
 export const LOGIN_USER_START = 'login_user_start';
 export const LOGOUT_USER_SUCCESS = 'logout_user_success';
-export const FORGOT_PASSWORD_START = 'forgot_password_start';
+export const FORGOT_PASSWORD = 'forgot_password';
 export const FORGOT_PASSWORD_SUCCESS = 'forgot_password_success';
 export const FORGOT_PASSWORD_FAIL = 'forgot_password_fail';
 

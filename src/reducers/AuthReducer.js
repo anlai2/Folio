@@ -7,7 +7,7 @@ import {
   LOGIN_USER_FAIL,
   LOGIN_USER_START,
   LOGOUT_USER_SUCCESS,
-  FORGOT_PASSWORD_START,
+  FORGOT_PASSWORD,
   FORGOT_PASSWORD_SUCCESS,
   FORGOT_PASSWORD_FAIL,
 } from '../actions/types';
@@ -22,6 +22,7 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(state.email);
   switch (action.type) {
     case EMAIL_CHANGED:
       return { ...state, email: action.payload };
@@ -41,8 +42,8 @@ export default (state = INITIAL_STATE, action) => {
       };
     case LOGOUT_USER_SUCCESS:
       return { ...state, ...INITIAL_STATE, user: action.payload };
-    case FORGOT_PASSWORD_START:
-      return { ...state, loadingForgot: true };
+    case FORGOT_PASSWORD:
+      return { ...state, error: '', loadingForgot: true };
     case FORGOT_PASSWORD_SUCCESS:
       return { ...state, loadingForgot: false };
     case FORGOT_PASSWORD_FAIL:
