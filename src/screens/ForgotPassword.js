@@ -1,47 +1,26 @@
 import React, { Component } from 'react';
-import { Actions } from 'react-native-router-flux';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { LinearGradient } from 'expo';
 import {
   emailChanged,
-  passwordChanged,
-  loginUser,
+  forgotPassword,
 } from '../actions';
-import { Input, Spinner } from './common';
+import { Input, Spinner } from '../components/common';
 
-class LoginForm extends Component {
+class ForgotPassword extends Component {
   onEmailChange(text) {
     this.props.emailChanged(text);
   }
 
-  onPasswordChange(text) {
-    this.props.passwordChanged(text);
-  }
-
   onButtonPress() {
-    const { email, password } = this.props;
+    const { email } = this.props;
 
-    this.props.loginUser({ email, password });
-  }
-
-  onForgotPress = () => {
-    Actions.forgotPassword();
-  };
-
-  renderError() {
-    if (this.props.error) {
-      return (
-        <View style={{ backgroundColor: 'white' }}>
-          <Text style={styles.errorTextStyle}>{this.props.error}</Text>
-        </View>
-      );
-    }
-    return null;
+    this.props.forgotPassword(email);
   }
 
   renderButton() {
-    if (this.props.loadingLogin) {
+    if (this.props.loadingForgot) {
       return <Spinner size="large" />;
     }
 
@@ -54,23 +33,7 @@ class LoginForm extends Component {
           style={styles.loginButtonContainer}
           colors={['#FF5637', '#FF444A', '#FF2D68']}
         >
-          <Text style={styles.loginButtonText}>LOGIN</Text>
-        </LinearGradient>
-      </TouchableOpacity>
-    );
-  }
-
-  renderForgotButton() {
-    return (
-      <TouchableOpacity
-        style={{ alignItems: 'center', justifyContent: 'center' }}
-        onPress={() => this.onForgotPress()}
-      >
-        <LinearGradient
-          style={styles.loginButtonContainer}
-          colors={['#FF5637', '#FF444A', '#FF2D68']}
-        >
-          <Text style={styles.loginButtonText}>FORGOT PASSWORD</Text>
+          <Text style={styles.loginButtonText}>SEND RESET LINK</Text>
         </LinearGradient>
       </TouchableOpacity>
     );
@@ -88,28 +51,9 @@ class LoginForm extends Component {
               value={this.props.email}
             />
           </View>
-          <View style={styles.cardContainer}>
-            <Input
-              secureTextEntry
-              label="Password"
-              placeholder="password"
-              onChangeText={text => this.onPasswordChange(text)}
-              value={this.props.password}
-            />
-          </View>
-        </View>
-        <View style={styles.buttonStyle}>
-          <View style={styles.cardContainer}>{this.renderError()}</View>
         </View>
         <View style={styles.buttonStyle}>
           <View style={styles.cardContainer}>{this.renderButton()}</View>
-        </View>
-        <View style={{ flex: 2 }}>
-          <View style={styles.forgotButtonStyle}>
-            <View style={styles.cardContainer}>
-              {this.renderForgotButton()}
-            </View>
-          </View>
         </View>
       </View>
     );
@@ -117,11 +61,6 @@ class LoginForm extends Component {
 }
 
 const styles = {
-  errorTextStyle: {
-    fontSize: 20,
-    alignSelf: 'center',
-    color: 'red',
-  },
   backgroundContainer: {
     flex: 1,
     backgroundColor: 'white',
@@ -165,21 +104,19 @@ const styles = {
 
 const mapStateToProps = ({ auth }) => {
   const {
-    email, password, error, loadingLogin,
+    email, error, loadingForgot,
   } = auth;
 
   return {
     email,
-    password,
     error,
-    loadingLogin,
+    loadingForgot,
   };
 };
 export default connect(
   mapStateToProps,
   {
     emailChanged,
-    passwordChanged,
-    loginUser,
+    forgotPassword,
   },
-)(LoginForm);
+)(ForgotPassword);

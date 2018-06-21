@@ -9,6 +9,7 @@ import AddCoinScreen from './screens/AddCoinScreen';
 import AddAssetsScreen from './screens/AddAssetsScreen';
 import CoinDetailScreen from './screens/CoinDetailScreen';
 import NewsScreen from './screens/NewsScreen';
+import ForgotPassword from './screens/ForgotPassword';
 
 const BACK_BUTTON = require('../assets/back.png');
 
@@ -27,6 +28,13 @@ const RouterComponent = () => (
         <Scene
           key="loginUser"
           component={LoginForm}
+          navigationBarStyle={{ backgroundColor: 'white' }}
+          backButtonImage={BACK_BUTTON}
+          backButtonTextStyle={{ color: '#FFF' }}
+        />
+        <Scene
+          key="forgotPassword"
+          component={ForgotPassword}
           navigationBarStyle={{ backgroundColor: 'white' }}
           backButtonImage={BACK_BUTTON}
           backButtonTextStyle={{ color: '#FFF' }}
