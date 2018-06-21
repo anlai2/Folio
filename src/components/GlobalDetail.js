@@ -28,7 +28,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    padding: 30,
+    padding: 20,
     margin: 10,
     borderRadius: 20,
     shadowOffset: {
@@ -41,8 +41,7 @@ const styles = {
   textStyle: {
     justifyContent: 'center',
     color: 'white',
-    fontWeight: '300',
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 20,
   },
   textValueStyle: {
