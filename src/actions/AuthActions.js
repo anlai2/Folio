@@ -85,7 +85,7 @@ export const forgotPassword = email => (dispatch) => {
     })
     .catch((err) => {
       console.log(err);
-      Alert.alert('Email does not exist!', `${email} was not found in our database or is not a proper email`);
+      Alert.alert('Email does not exist!', `${email} was not found in our database, is not a proper email, or has been reset recently`);
       dispatch({ type: FORGOT_PASSWORD_FAIL });
     });
 };
