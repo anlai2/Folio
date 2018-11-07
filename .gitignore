@@ -7,3 +7,4 @@ functions/service_account.json
 functions/package-lock.json
 .DS_Store
 src/.DS_Store
+src/Home.js
